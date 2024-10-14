@@ -11,26 +11,24 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* MPhil in Computer Science, City University of Hong Kong, 2025.01
+* Bachelor in Information Management and Information System, Northeastern University (China), 2020.09-2024.06
 
 Work experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * Github University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* May 2024 - Now: Machine Learning Algorithm Engineer Intern
+  * DJI
+  * Duties includes: Contributed to the development of the AutoML pipeline at DJI, with a focus on Network Architecture Search (NAS).
+  * Supervisor: [Dr. Bo Chen](https://www.linkedin.com/in/bo-chen-76960688), Zhan Hu
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* October 2023 - May 2024: Algorithm Intern
+  * ASML China, Brion Technologies
+  * Duties included: Optimize the exist tools for ASML's computation lithography product.
+  * Supervisor: [Dr. Jialu Huang](https://hideunderbush.github.io/)
 
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* July 2023 - October 2024: Algorithm Research Intern
+  * XGrids Innovation
+  * Duties included: Discover more efficient algorithm for Sparse Convolution for voxels in point-cloud segmentation.
   
 Skills
 ======
