@@ -21,7 +21,7 @@ repository               : "chester1uo/chester1uo.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "profile.jpg"
   name             : "Haochen Luo"
   pronouns         : # example: "she/her"  
   bio              : "Intern at DJI, MPhil Student at CityU Hong Kong"
