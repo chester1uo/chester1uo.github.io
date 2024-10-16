@@ -18,6 +18,7 @@ Work experience
 ======
 * May 2024 - Now: Machine Learning Algorithm Engineer Intern
   * DJI
+  * ![Alt text](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSpBL7pbVUQNeBGm1Jm8eSlZyufTdQpcXNNg&s "a title")
   * Duties includes: Contributed to the development of the AutoML pipeline at DJI, with a focus on Network Architecture Search (NAS).
   * Supervisor: [Dr. Bo Chen](https://www.linkedin.com/in/bo-chen-76960688), Zhan Hu
 
@@ -29,6 +30,7 @@ Work experience
 * July 2023 - October 2024: Algorithm Research Intern
   * XGrids Innovation
   * Duties included: Discover more efficient algorithm for Sparse Convolution for voxels in point-cloud segmentation.
+  * Supervisor: [Dr. Hao Fang](https://univ-cotedazur.fr/hao-fang)
   
 Skills
 ======
