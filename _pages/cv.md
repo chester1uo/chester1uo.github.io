@@ -17,18 +17,17 @@ Education
 Work experience
 ======
 * May 2024 - Now: Machine Learning Algorithm Engineer Intern
-  * DJI
-  * ![Alt text](https://pic.imgdb.cn/item/670fc544d29ded1a8c51c6bb.png "a title")
+  * ![DJI](https://pic.imgdb.cn/item/670fc544d29ded1a8c51c6bb.png "a title")
   * Duties includes: Contributed to the development of the AutoML pipeline at DJI, with a focus on Network Architecture Search (NAS).
   * Supervisor: [Dr. Bo Chen](https://www.linkedin.com/in/bo-chen-76960688), Zhan Hu
 
 * October 2023 - May 2024: Algorithm Intern
-  * ![Alt text](https://pic.imgdb.cn/item/670fc511d29ded1a8c5197e1.png "a title") 
+  * ![ASML](https://pic.imgdb.cn/item/670fc511d29ded1a8c5197e1.png "a title") 
   * Duties included: Optimize the exist tools for ASML's computation lithography product.
   * Supervisor: [Dr. Jialu Huang](https://hideunderbush.github.io/)
 
 * July 2023 - October 2024: Algorithm Research Intern
-  * ![Alt text](https://pic.imgdb.cn/item/670fc522d29ded1a8c51a897.png "a title") 
+  * ![XGRIDS](https://pic.imgdb.cn/item/670fc522d29ded1a8c51a897.png "a title") 
   * Duties included: Discover more efficient algorithm for Sparse Convolution for voxels in point-cloud segmentation.
   * Supervisor: [Dr. Hao Fang](https://univ-cotedazur.fr/hao-fang)
   
