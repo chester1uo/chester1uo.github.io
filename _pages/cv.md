@@ -17,7 +17,7 @@ Education
 Work experience
 ======
 * May 2024 - Now: Machine Learning Algorithm Engineer Intern
-  * <a href="https://dji.com"> <img src="https://pic.imgdb.cn/item/670fc544d29ded1a8c51c6bb.png" alt="DJI" width="150" height="100" /></a>
+  * <a href="https://dji.com"> <img src="https://pic.imgdb.cn/item/670fc544d29ded1a8c51c6bb.png" alt="DJI" width="100" height="80" /></a>
   * Duties includes: Contributed to the development of the AutoML pipeline at DJI, with a focus on Network Architecture Search (NAS).
   * Supervisor: [Dr. Bo Chen](https://www.linkedin.com/in/bo-chen-76960688), Zhan Hu
 
