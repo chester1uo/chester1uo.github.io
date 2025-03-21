@@ -215,7 +215,7 @@ collections:
     output: false
     permalink: /:collection/:path/
   publications:
-    output: true
+    output: false
     permalink: /:collection/:path/
   portfolio:
     output: false
@@ -226,7 +226,7 @@ collections:
 
 
 # These settings control how pages and collections are included in the site
-# defaults:
+defaults:
   # _posts
   # - scope:
   #     path: ""
@@ -238,13 +238,13 @@ collections:
   #     comments: true
   #     share: true
   #     related: true
-  # _pages
-  # - scope:
-  #     path: ""
-  #     type: pages
-  #   values:
-  #     layout: single
-  #     author_profile: true
+  _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
   # _teaching
   # - scope:
   #     path: ""
