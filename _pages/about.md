@@ -20,4 +20,8 @@ Outside of academia, I have a keen interest in aviation ✈️ and photography �
 * 10/2023 - 05/2024: ASML, Algorithm Intern
 * 07/2023 - 10/2024: XGRIDS, Algorithm Research Intern
 
-## Publications
+## Preprints and Publications
+
+* Zhong, Xuyang, Haochen Luo, and Chen Liu. "Dualoptim: Enhancing efficacy and stability in machine unlearning with dual optimizers." arXiv preprint arXiv:2504.15827 (2025).
+* Luo, Haochen, Yuan Zhang, and Chen Liu. "EFS: Evolutionary Factor Searching for Sparse Portfolio Optimization Using Large Language Models." arXiv preprint arXiv:2507.17211 (2025).
+
