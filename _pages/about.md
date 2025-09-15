@@ -33,5 +33,8 @@ Outside of academia, I have a keen interest in aviation ✈️ and photography �
 
 * Reviewer of AAAI 2026
 
+## Contact Me
+
+I am seeking collaborators, and I'm particularly looking for undergraduate students with strong coding abilities to build powerful investment agents. If you are interested in my work or quantitative investment, please feel free to contact me! 
 
 <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=Ny8sf99fBB0N-Rh82wlTJKSCbRAIeDTZY5m7kZq-oGo&cl=ffffff&w=a"></script>
