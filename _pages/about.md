@@ -7,7 +7,11 @@ redirect_from:
   - /about.html
 ---
 
-Hi! I am interested in machine learning thoery and application. Now I am MPhil student at City University of Hong Kong, supervised by [Prof. Liu Chen](https://liuchen1993.cn/). 
+Hi! I am MPhil student at City University of Hong Kong, supervised by [Prof. Liu Chen](https://liuchen1993.cn/). My interests are: 
+
+**1. Machine learning theory**, with a particular focus on robustness, privacy, and the security of machine learning models.
+
+**2. Applications of large language models (LLMs) in FinTech**, especially towards enabling more intelligent and reliable investment decision-making.
 
 Outside of academia, I have a keen interest in aviation ✈️ and photography 📷. Additionally, I am an experienced investor in the U.S. and Hong Kong stock markets, including derivatives.
 
@@ -24,4 +28,8 @@ Outside of academia, I have a keen interest in aviation ✈️ and photography �
 
 * Zhong, Xuyang, Haochen Luo, and Chen Liu. "Dualoptim: Enhancing efficacy and stability in machine unlearning with dual optimizers." arXiv preprint arXiv:2504.15827 (2025).
 * Luo, Haochen, Yuan Zhang, and Chen Liu. "EFS: Evolutionary Factor Searching for Sparse Portfolio Optimization Using Large Language Models." arXiv preprint arXiv:2507.17211 (2025).
+
+## Service
+
+* Reviewer of AAAI 2026
 
