@@ -11,7 +11,9 @@ Hi! I am MPhil student at City University of Hong Kong, supervised by [Prof. Liu
 
 **1. Machine learning theory**, with a particular focus on robustness, privacy, and the security of machine learning models.
 
-**2. Applications of large language models (LLMs) in FinTech**, especially towards enabling more intelligent and reliable investment decision-making.
+**2. Applications of large language models (LLMs) in FinTech**, especially towards enabling more intelligent and reliable investment decision-making. This work is conducted under the supervision and collaboration of Prof. Zhang Yuan at SUFE.
+
+Previously, I gained experience mainly in computer vision and model acceleration in industry.
 
 Outside of academia, I have a keen interest in aviation ✈️ and photography 📷. Additionally, I am an experienced investor in the U.S. and Hong Kong stock markets, including derivatives.
 
