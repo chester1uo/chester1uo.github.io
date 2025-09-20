@@ -28,8 +28,9 @@ Outside of academia, I have a keen interest in aviation ✈️ and photography �
 
 ## Preprints and Publications
 
-* Zhong, Xuyang, **Haochen Luo**, and Chen Liu. "Dualoptim: Enhancing efficacy and stability in machine unlearning with dual optimizers." arXiv preprint arXiv:2504.15827 (2025).
 * **Luo, Haochen**, Yuan Zhang, and Chen Liu. "EFS: Evolutionary Factor Searching for Sparse Portfolio Optimization Using Large Language Models." arXiv preprint arXiv:2507.17211 (2025).
+* Zhong, Xuyang, **Haochen Luo**, and Chen Liu. "Dualoptim: Enhancing efficacy and stability in machine unlearning with dual optimizers." Neural Information Processing Systems (NeurIPS) 2025.
+
 
 ## Service
 
