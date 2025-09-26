@@ -27,7 +27,7 @@ Outside of academia, I have a keen interest in aviation ✈️ and photography �
 * 07/2023 - 10/2024: XGRIDS, Algorithm Research Intern
 
 ## Preprints and Publications
-
+* **Haochen Luo**, Ho Tin Ko, Jiandong Chen, David Sun, Yuan Zhang, Chen Liu. "AlphaBench: Benchmarking Large Language Models in Formulaic Alpha Factor Mining"
 * **Luo, Haochen**, Yuan Zhang, and Chen Liu. "EFS: Evolutionary Factor Searching for Sparse Portfolio Optimization Using Large Language Models." arXiv preprint arXiv:2507.17211 (2025).
 * Zhong, Xuyang, **Haochen Luo**, and Chen Liu. "Dualoptim: Enhancing efficacy and stability in machine unlearning with dual optimizers." Neural Information Processing Systems (NeurIPS) 2025.
 
