@@ -32,7 +32,7 @@ author:
 
   # Academic websites
   arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
+  googlescholar    : "https://scholar.google.com/citations?user=P3JqsrAAAAAJ&hl=en"
   impactstory      : # URL
   orcid            : # "http://orcid.org/yourorcidurl"
   semantic         : # URL
@@ -57,7 +57,7 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : # Username
+  linkedin         : haochen-luo-71a178291
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username
@@ -238,7 +238,7 @@ defaults:
   #     comments: true
   #     share: true
   #     related: true
-  # _pages
+  _pages
   - scope:
       path: ""
       type: pages
@@ -254,7 +254,7 @@ defaults:
   #     author_profile: true
   #     share: true
   #     comments: true
-  # _publications
+  _publications
   - scope:
       path: ""
       type: publications
@@ -273,13 +273,13 @@ defaults:
   #     share: true
   #     comment: true
   # _talks
-  - scope:
-      path: ""
-      type: talks
-    values:
-      layout: talk
-      author_profile: true
-      share: true
+  # - scope:
+  #     path: ""
+  #     type: talks
+  #   values:
+  #     layout: talk
+  #     author_profile: true
+  #     share: true
 
 
 # Sass/SCSS
