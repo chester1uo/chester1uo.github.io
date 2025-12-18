@@ -13,6 +13,8 @@ Hi! I am MPhil student at City University of Hong Kong, supervised by [Prof. Liu
 
 **2. Applications of large language models (LLMs) in FinTech**, especially towards enabling more intelligent and reliable investment decision-making. This work is conducted under the supervision and collaboration of Prof. Zhang Yuan at SUFE.
 
+**3. Multi-Agents Systems (MAS)**, design efficient and reliable multi-agent systems for a wide range of applications.
+
 Previously, I gained experience mainly in computer vision and model acceleration in industry.
 
 Outside of academia, I have a keen interest in aviation ✈️ and photography 📷. Additionally, I am an experienced investor in the U.S. and Hong Kong stock markets, including derivatives.
@@ -33,7 +35,7 @@ Outside of academia, I have a keen interest in aviation ✈️ and photography �
 
 ## Preprints and Publications
 
-* **Haochen** Luo; Ho Tin Ko; David Sun; Yuan Zhang; Chen Liu. "EvoAlpha: Evolutionary Alpha Factor Discovery with Large Language Models". NeurIPS 2025 Workshop on Generative AI in Finance.
+* **Haochen Luo**; Ho Tin Ko; David Sun; Yuan Zhang; Chen Liu. "EvoAlpha: Evolutionary Alpha Factor Discovery with Large Language Models". NeurIPS 2025 Workshop on Generative AI in Finance.
 * Zhong, Xuyang, **Haochen Luo**, and Chen Liu. "Dualoptim: Enhancing efficacy and stability in machine unlearning with dual optimizers." Neural Information Processing Systems (NeurIPS) 2025.
 
 
