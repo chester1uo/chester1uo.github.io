@@ -2,7 +2,7 @@
 title: "DualOptim: Enhancing Efficacy and Stability in Machine Unlearning with Dual Optimizers"
 collection: publications
 category: conferences
-permalink: /publication/2025-dualoptim.md
+permalink: /publication/2025-dualoptim
 date: 2025-12-07
 venue: 'Neural Information Processing Systems (NeurIPS) 2025'
 paperurl: 'https://arxiv.org/abs/2504.15827'
