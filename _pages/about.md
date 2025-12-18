@@ -17,6 +17,11 @@ Previously, I gained experience mainly in computer vision and model acceleration
 
 Outside of academia, I have a keen interest in aviation ✈️ and photography 📷. Additionally, I am an experienced investor in the U.S. and Hong Kong stock markets, including derivatives.
 
+![Boeing 747-438 (VH-OJA, City of Canberra) and Boeing 787 ZA001](https://raw.githubusercontent.com/chester1uo/chester1uo.github.io/refs/heads/master/images/MixCollage-18-Dec-2025-04-54-PM-5798.jpg)
+
+*Boeing 747-438 (VH-OJA, City of Canberra) from QANTAS at HARS Aviation Museum, NSW, and the first experimental Boeing 787, the ZA001 at Chubu Airport, Nagoya. From the iconic “Queen of the Skies” to the composite-built Dreamliner, we see the change of aviation history across generations.*
+
+
 ## Education Experiences
 - 12/2024 - 12/2026, City University of Hong Kong, MPhil, Computer Science
 - 09/2020 - 07/2024, Northeastern University, Bachelor, Information Management and Information System
