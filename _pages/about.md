@@ -27,14 +27,14 @@ Outside of academia, I have a keen interest in aviation ✈️ and photography �
 * 07/2023 - 10/2024: XGRIDS, Algorithm Research Intern
 
 ## Preprints and Publications
-* **Luo, Haochen**, Yuan Zhang, and Chen Liu. "EFS: Evolutionary Factor Searching for Sparse Portfolio Optimization Using Large Language Models." arXiv preprint arXiv:2507.17211 (2025).
+
+* **Haochen** Luo; Ho Tin Ko; David Sun; Yuan Zhang; Chen Liu. "EvoAlpha: Evolutionary Alpha Factor Discovery with Large Language Models". NeurIPS 2025 Workshop on Generative AI in Finance.
 * Zhong, Xuyang, **Haochen Luo**, and Chen Liu. "Dualoptim: Enhancing efficacy and stability in machine unlearning with dual optimizers." Neural Information Processing Systems (NeurIPS) 2025.
 
 
 ## Service
 
 * Reviewer of AAAI 2026
-* Reviewer of ICLR 2026
 
 ## Contact Me
 
