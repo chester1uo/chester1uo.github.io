@@ -45,6 +45,8 @@ Outside of academia, I have a keen interest in aviation ✈️ and photography �
 
 ## Contact Me
 
-I am seeking collaborators, and I'm particularly looking for undergraduate students with strong coding abilities to build powerful investment agents. If you are interested in my work or quantitative investment, please feel free to contact me! 
+I am open to working with CityU Hong Kong undergraduate students who are looking for RMS or FYP projects and are interested in doing research in FinTech or AI for Finance (AI4Fin). Please contact Prof. Liu Chen. We can then propose a project that suits your background and interests, and I hope you can take the role of project leader to help drive the research forward.
+
+I am also open to collaborating with CS6590 Master’s project students who would like to contribute to our ongoing research projects.
 
 <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=Ny8sf99fBB0N-Rh82wlTJKSCbRAIeDTZY5m7kZq-oGo&cl=ffffff&w=a"></script>
