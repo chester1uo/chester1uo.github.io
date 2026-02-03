@@ -44,7 +44,7 @@ Outside of academia, I have a keen interest in aviation ✈️ and photography �
 
 ## Service
 
-* Reviewer of AAAI 2026
+* Reviewer of AAAI 2026, ICML 2026
 
 ## Contact Me
 
