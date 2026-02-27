@@ -5,7 +5,8 @@ category: conferences
 permalink: /publication/2025-dualoptim
 date: 2025-12-07
 venue: 'Neural Information Processing Systems (NeurIPS) 2025'
-paperurl: 'https://arxiv.org/abs/2504.15827'
+paperurl: 'https://openreview.net/forum?id=d97Q8r7ZKZ'
+githuburl: 'https://github.com/CityU-MLO/DualOptim'
 posterurl: 'http://chester1uo.github.io/files/MU_DualOptim_poster.pdf'
 ---
 
