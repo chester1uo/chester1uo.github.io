@@ -6,8 +6,6 @@ author_profile: true
 redirect_from:
   - /resume
 ---
-<!-- 
-{% include base_path %} -->
 
 Education
 ======
@@ -30,34 +28,3 @@ Work experience
   * <a href="https://www.xgrids.cn/"> <img src="https://pic.imgdb.cn/item/670fc522d29ded1a8c51a897.png" alt="XGRIDS" width="150" height="100" /></a>
   * Duties included: Discover more efficient algorithm for Sparse Convolution for voxels in point-cloud segmentation.
   * Supervisor: [Dr. Hao Fang](https://univ-cotedazur.fr/hao-fang)
-<!--   
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
-
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams -->
