@@ -37,14 +37,18 @@ Outside of academia, I have a keen interest in aviation ✈️ and photography �
 
 ## Preprints and Publications
 
+### Conference Papers
 * **Haochen Luo**; Ho Tin Ko; Jiandong Chen; David Sun; Yuan Zhang; Chen Liu. "AlphaBench: Benchmarking Large Language Models in Formulaic Alpha Factor Mining". International Conference on Learning Representations (ICLR) 2026.
-* **Haochen Luo**; Ho Tin Ko; David Sun; Yuan Zhang; Chen Liu. "EvoAlpha: Evolutionary Alpha Factor Discovery with Large Language Models". NeurIPS 2025 Workshop on Generative AI in Finance.
 * Zhong, Xuyang, **Haochen Luo**, and Chen Liu. "Dualoptim: Enhancing efficacy and stability in machine unlearning with dual optimizers." Neural Information Processing Systems (NeurIPS) 2025.
+
+### Preprints
+* **Haochen Luo**; Zhengzhao Lai; Junjie Xu; Yifan Li; Tang Pok Hin; Yuan Zhang; Chen Liu. "From Natural Language to Executable Option Strategies via Large Language Models". arXiv:2603.16434, 2026.
+* Jingning Xu; **Haochen Luo**; Chen Liu. "PDA: Text-Augmented Defense Framework for Robust Vision-Language Models against Adversarial Image Attacks". arXiv:2604.01010, 2026.
 
 
 ## Service
 
-* Reviewer of AAAI 2026, ICML 2026
+* Reviewer of AAAI Conference on Artificial Intelligence, International Conference on Machine Learning (ICML), Conference on Language Modeling (CoLM), Conference on Neural Information Processing Systems (NeurIPS)
 
 ## Contact Me
 
