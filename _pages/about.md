@@ -9,11 +9,9 @@ redirect_from:
 
 Hi! I am MPhil student at City University of Hong Kong, supervised by [Prof. Liu Chen](https://liuchen1993.cn/). My interests are: 
 
-**1. Machine learning theory**, with a particular focus on robustness, privacy, and the security of machine learning models.
+**1. Large Language Models (LLMs)**, with a particular focus on robustness, privacy, and the security of LLMs. Also I am interested in diffusion LLMs (dLLMs).
 
-**2. Multi-Agents Systems (MAS)**, design efficient and reliable multi-agent systems for a wide range of applications.
-
-**3. Applications of large language models (LLMs) in FinTech**, especially towards enabling more intelligent and reliable investment decision-making. This work is conducted under the supervision and collaboration of Prof. Zhang Yuan at SUFE. My current main research areas include: (1) Trading signals, especially formulaic alpha factor mining; (2) Derivatives trading, with a focus on options.
+**2. Applications of large language models (LLMs) in FinTech**, especially towards enabling more intelligent and reliable investment decision-making. This work is conducted under the supervision and collaboration of Prof. Zhang Yuan at SUFE. My current main research areas include: (1) Trading signals, especially formulaic alpha factor mining; (2) Derivatives trading, with a focus on options.
 
 
 
@@ -27,6 +25,7 @@ Outside of academia, I have a keen interest in aviation ✈️ and photography �
 
 
 ## Education Experiences
+- (Incoming) 01-2027, The University of Queensland, PhD, Computer Science
 - 12/2024 - 12/2026, City University of Hong Kong, MPhil, Computer Science
 - 09/2020 - 07/2024, Northeastern University, Bachelor, Information Management and Information System
 
