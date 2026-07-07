@@ -17,7 +17,7 @@
 <body class="win98-page win98-reset">
   <div class="win98-standalone-window">
     <div class="win98-titlebar active">
-      <span class="win98-titlebar-icon">{% if page.win98_icon %}{{ page.win98_icon }}{% else %}📄{% endif %}</span>
+      <span class="win98-titlebar-icon">{% include win98-icon.html icon=page.win98_icon size=16 %}</span>
       <span class="win98-titlebar-text">{{ page.title | markdownify | strip_html | strip_newlines }}</span>
       <div class="win98-titlebar-buttons">
         <a class="win98-title-btn win98-raised" href="{{ base_path }}/" title="Back to Desktop" style="text-decoration:none; display:flex; align-items:center; justify-content:center;">✕</a>

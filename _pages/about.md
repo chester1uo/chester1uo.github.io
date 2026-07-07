@@ -2,7 +2,7 @@
 layout: window
 permalink: /about/
 title: "About me"
-win98_icon: "📝"
+win98_icon: notepad
 redirect_from:
   - /about.html
 ---

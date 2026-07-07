@@ -20,8 +20,8 @@ apps:
     icon: doc
     type: iframe
     url: /cv/
-    width: 720
-    height: 560
+    width: 680
+    height: 780
 
   - id: publications
     label: "Publications"

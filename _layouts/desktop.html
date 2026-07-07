@@ -15,7 +15,7 @@
     <div class="win98-icons">
       {% for app in site.data.desktop.apps %}
         <div class="win98-icon" data-open-app="{{ app.id }}" tabindex="0">
-          <div class="win98-icon-glyph">{% case app.icon %}{% when 'notepad' %}📝{% when 'doc' %}📄{% when 'folder' %}📁{% when 'computer' %}🖥️{% when 'recyclebin' %}🗑️{% when 'mail' %}✉️{% when 'github' %}🐙{% when 'scholar' %}🎓{% else %}🗔️{% endcase %}</div>
+          <div class="win98-icon-glyph">{% include win98-icon.html icon=app.icon size=32 %}</div>
           <div class="win98-icon-label">{{ app.label }}</div>
         </div>
       {% endfor %}
@@ -40,7 +40,7 @@
     <div class="win98-start-menu-items">
       {% for app in site.data.desktop.apps %}
         <button class="win98-start-menu-item" data-open-app="{{ app.id }}">
-          <span class="win98-start-menu-icon">{% case app.icon %}{% when 'notepad' %}📝{% when 'doc' %}📄{% when 'folder' %}📁{% when 'computer' %}🖥️{% when 'recyclebin' %}🗑️{% when 'mail' %}✉️{% when 'github' %}🐙{% when 'scholar' %}🎓{% else %}🗔️{% endcase %}</span>
+          <span class="win98-start-menu-icon">{% include win98-icon.html icon=app.icon size=18 %}</span>
           <span>{{ app.label }}</span>
         </button>
       {% endfor %}
