@@ -4,6 +4,7 @@ title: "CV"
 permalink: /cv/
 win98_icon: doc
 win98_titlebar: "Acrobat Reader - [cv_aca.pdf]"
+win98_fullbleed: true
 redirect_from:
   - /resume
 ---
@@ -54,7 +55,7 @@ redirect_from:
   </div>
 
   <div class="win98-acrobat-viewport">
-    <iframe src="/files/cv_aca.pdf" title="Haochen Luo CV"></iframe>
+    <iframe src="/files/cv_aca.pdf#toolbar=0&navpanes=0&statusbar=0&view=FitH" title="Haochen Luo CV"></iframe>
   </div>
 
   <div class="win98-statusbar">

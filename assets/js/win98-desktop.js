@@ -46,7 +46,10 @@
       '<polygon points="16,6 30,13 16,20 2,13" fill="#1a1a1a" stroke="#000000"/>' +
       '<polygon points="16,20 24,16.4 24,22 16,26 8,22 8,16.4" fill="#3a3a3a" stroke="#000000"/>' +
       '<rect x="15" y="13" width="2" height="9" fill="#1a1a1a"/>' +
-      '<circle cx="16" cy="23.5" r="2" fill="#8a1c1c" stroke="#000000"/>'
+      '<circle cx="16" cy="23.5" r="2" fill="#8a1c1c" stroke="#000000"/>',
+    ie:
+      '<circle cx="16" cy="16" r="13" fill="#1a5fb4" stroke="#000000"/>' +
+      '<text x="16" y="22" font-family="Georgia, serif" font-size="17" font-style="italic" font-weight="bold" fill="#ffffff" text-anchor="middle">e</text>'
   };
 
   function iconSvg(iconKey) {
@@ -356,15 +359,7 @@
     return body;
   }
 
-  function openApp(id) {
-    var app = apps[id];
-    if (!app) return;
-
-    if (app.type === "link") {
-      window.open(app.url, "_blank", "noopener");
-      return;
-    }
-
+  function createWindow(id, app) {
     if (openWindows[id]) {
       restoreWindow(id);
       return;
@@ -435,6 +430,34 @@
 
     focusWindow(id);
   }
+
+  function openApp(id) {
+    var app = apps[id];
+    if (!app) return;
+
+    if (app.type === "link") {
+      window.open(app.url, "_blank", "noopener");
+      return;
+    }
+
+    createWindow(id, app);
+  }
+
+  function openExternal(url, label) {
+    var id = "ext:" + url;
+    createWindow(id, {
+      label: label || url,
+      window_title: "Internet Explorer",
+      icon: "ie",
+      type: "webview",
+      url: url,
+      width: 680,
+      height: 480
+    });
+  }
+
+  window.WIN98 = window.WIN98 || {};
+  window.WIN98.openExternal = openExternal;
 
   function closeStartMenu() {
     startMenu.classList.remove("open");

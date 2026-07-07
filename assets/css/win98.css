@@ -325,13 +325,14 @@ body.win98-desktop-body {
 .win98-acrobat {
   display: flex;
   flex-direction: column;
-  height: 82vh;
-  margin: -18px -20px -24px;
+  flex: 1;
+  min-height: 0;
   background: var(--w98-face);
 }
 
 .win98-acrobat-viewport {
   flex: 1;
+  min-height: 0;
   background: #6e6e6e;
 }
 
@@ -722,12 +723,38 @@ html.win98-embedded .win98-titlebar {
   display: none;
 }
 
+.win98-standalone-window.win98-standalone-fullbleed {
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  height: 88vh;
+}
+
+html.win98-embedded .win98-standalone-window.win98-standalone-fullbleed {
+  height: 100vh;
+}
+
 .win98-doc {
   background: #ffffff;
   padding: 18px 20px 24px;
   font-size: 13px;
   line-height: 1.55;
   color: #000000;
+}
+
+.win98-doc.win98-fullbleed {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  padding: 0;
+}
+
+.win98-doc.win98-fullbleed > .win98-pdf-fallback {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 4px 8px;
+  background: var(--w98-face);
 }
 
 .win98-doc h1, .win98-doc h2, .win98-doc h3 {

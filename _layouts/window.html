@@ -15,7 +15,7 @@
   </script>
 </head>
 <body class="win98-page win98-reset">
-  <div class="win98-standalone-window">
+  <div class="win98-standalone-window{% if page.win98_fullbleed %} win98-standalone-fullbleed{% endif %}">
     <div class="win98-titlebar active">
       <span class="win98-titlebar-icon">{% include win98-icon.html icon=page.win98_icon size=16 %}</span>
       <span class="win98-titlebar-text">{% if page.win98_titlebar %}{{ page.win98_titlebar }}{% else %}{{ page.title | markdownify | strip_html | strip_newlines }}{% endif %}</span>
@@ -23,9 +23,27 @@
         <a class="win98-title-btn win98-raised" href="{{ base_path }}/" title="Back to Desktop" style="text-decoration:none; display:flex; align-items:center; justify-content:center;">✕</a>
       </div>
     </div>
-    <div class="win98-doc">
+    <div class="win98-doc{% if page.win98_fullbleed %} win98-fullbleed{% endif %}">
       {{ content }}
     </div>
   </div>
+  <script>
+    (function () {
+      var links = document.querySelectorAll(".win98-doc a[href]");
+      links.forEach(function (link) {
+        if (!/^https?:$/.test(link.protocol)) return;
+        if (link.hostname === window.location.hostname) return;
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          var url = link.href;
+          if (window.parent && window.parent !== window && window.parent.WIN98 && typeof window.parent.WIN98.openExternal === "function") {
+            window.parent.WIN98.openExternal(url, link.hostname);
+          } else {
+            window.open(url, "_blank", "noopener");
+          }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
