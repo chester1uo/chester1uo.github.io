@@ -20,6 +20,7 @@ apps:
     icon: doc
     type: iframe
     url: /cv/
+    window_title: "Acrobat Reader - [cv_aca.pdf]"
     width: 680
     height: 780
 
@@ -56,11 +57,17 @@ apps:
   - id: github
     label: "GitHub"
     icon: github
-    type: link
+    type: webview
     url: "https://github.com/chester1uo"
+    window_title: "Internet Explorer"
+    width: 680
+    height: 480
 
   - id: scholar
     label: "Google Scholar"
     icon: scholar
-    type: link
+    type: webview
     url: "https://scholar.google.com/citations?user=P3JqsrAAAAAJ&hl=en"
+    window_title: "Internet Explorer"
+    width: 680
+    height: 480

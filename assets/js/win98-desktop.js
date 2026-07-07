@@ -105,7 +105,7 @@
   function makeTaskbarButton(id, app) {
     var btn = document.createElement("button");
     btn.className = "win98-taskbar-btn win98-raised";
-    btn.innerHTML = '<span>' + iconSvg(app.icon) + '</span><span>' + app.label + '</span>';
+    btn.innerHTML = '<span>' + iconSvg(app.icon) + '</span><span>' + (app.window_title || app.label) + '</span>';
     btn.addEventListener("click", function () {
       var w = openWindows[id];
       if (!w) return;
@@ -244,6 +244,96 @@
     });
   }
 
+  var IE_TOOLBAR_ICONS =
+    '<button class="win98-toolbar-btn" title="Back" disabled>' +
+      '<svg viewBox="0 0 20 20"><polygon points="12,4 6,10 12,16" fill="#008000"/><path d="M12 10h4a2 2 0 0 1 2 2v1" fill="none" stroke="#008000" stroke-width="1.4"/></svg>' +
+    '</button>' +
+    '<button class="win98-toolbar-btn" title="Forward" disabled>' +
+      '<svg viewBox="0 0 20 20"><polygon points="8,4 14,10 8,16" fill="#808080"/><path d="M8 10H4a2 2 0 0 0-2 2v1" fill="none" stroke="#808080" stroke-width="1.4"/></svg>' +
+    '</button>' +
+    '<span class="win98-toolbar-sep"></span>' +
+    '<button class="win98-toolbar-btn" title="Stop" disabled>' +
+      '<svg viewBox="0 0 20 20"><polygon points="6,2 14,2 18,6 18,14 14,18 6,18 2,14 2,6" fill="#c00000"/><line x1="6" y1="6" x2="14" y2="14" stroke="#fff" stroke-width="1.6"/><line x1="14" y1="6" x2="6" y2="14" stroke="#fff" stroke-width="1.6"/></svg>' +
+    '</button>' +
+    '<button class="win98-toolbar-btn" title="Refresh" disabled>' +
+      '<svg viewBox="0 0 20 20"><path d="M4 10a6 6 0 0 1 10.5-4" fill="none" stroke="#000080" stroke-width="1.6"/><polygon points="14.5,2 15.5,7 10.5,6" fill="#000080"/><path d="M16 10a6 6 0 0 1-10.5 4" fill="none" stroke="#000080" stroke-width="1.6"/><polygon points="5.5,18 4.5,13 9.5,14" fill="#000080"/></svg>' +
+    '</button>' +
+    '<button class="win98-toolbar-btn" title="Home" disabled>' +
+      '<svg viewBox="0 0 20 20"><polygon points="10,3 17,9 15,9 15,17 5,17 5,9 3,9" fill="#000080"/><rect x="8.5" y="12" width="3" height="5" fill="#fff"/></svg>' +
+    '</button>';
+
+  function buildWebviewChrome(app) {
+    var wrap = document.createElement("div");
+    wrap.className = "win98-webview";
+
+    var menubar = document.createElement("div");
+    menubar.className = "win98-menubar";
+    menubar.innerHTML = "<span>File</span><span>Edit</span><span>View</span><span>Favorites</span><span>Tools</span><span>Help</span>";
+    wrap.appendChild(menubar);
+
+    var toolbar = document.createElement("div");
+    toolbar.className = "win98-toolbar";
+    toolbar.innerHTML = IE_TOOLBAR_ICONS;
+    wrap.appendChild(toolbar);
+
+    var addressBar = document.createElement("div");
+    addressBar.className = "win98-webview-addressbar";
+    addressBar.innerHTML =
+      "<span>Address</span>" +
+      '<input class="win98-webview-address-input win98-sunken" type="text" readonly>' +
+      '<button class="win98-webview-go win98-raised">Go</button>';
+    var addressInput = addressBar.querySelector(".win98-webview-address-input");
+    addressInput.value = app.url;
+    addressBar.querySelector(".win98-webview-go").addEventListener("click", function () {
+      window.open(app.url, "_blank", "noopener");
+    });
+    wrap.appendChild(addressBar);
+
+    var content = document.createElement("div");
+    content.className = "win98-webview-content";
+    content.innerHTML =
+      '<div class="win98-webview-panel">' +
+        '<div class="win98-webview-icon">' +
+          '<svg width="40" height="40" viewBox="0 0 32 32"><polygon points="16,3 30,27 2,27" fill="#ffdd33" stroke="#000" stroke-width="1"/><rect x="14.5" y="11" width="3" height="9" fill="#000"/><rect x="14.5" y="22" width="3" height="3" fill="#000"/></svg>' +
+        '</div>' +
+        "<h2>This page cannot be displayed here</h2>" +
+        "<p>This site does not allow itself to be shown inside another window. Copy the link below, or open it in a real browser tab.</p>" +
+        '<span class="win98-webview-url"></span>' +
+        '<div class="win98-webview-actions">' +
+          '<button class="win98-btn win98-raised" data-action="copy">Copy Link</button>' +
+          '<button class="win98-btn win98-raised" data-action="open">Open in New Tab</button>' +
+        "</div>" +
+      "</div>";
+    content.querySelector(".win98-webview-url").textContent = app.url;
+    var copyBtn = content.querySelector('[data-action="copy"]');
+    copyBtn.addEventListener("click", function () {
+      var restore = function () {
+        copyBtn.textContent = "Copy Link";
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(app.url).then(function () {
+          copyBtn.textContent = "Copied!";
+          setTimeout(restore, 1500);
+        }).catch(function () {
+          addressInput.select();
+        });
+      } else {
+        addressInput.select();
+      }
+    });
+    content.querySelector('[data-action="open"]').addEventListener("click", function () {
+      window.open(app.url, "_blank", "noopener");
+    });
+    wrap.appendChild(content);
+
+    var statusbar = document.createElement("div");
+    statusbar.className = "win98-statusbar";
+    statusbar.innerHTML = "<span>Done</span>";
+    wrap.appendChild(statusbar);
+
+    return wrap;
+  }
+
   function buildWindowBody(app) {
     var body = document.createElement("div");
     body.className = "win98-window-body";
@@ -251,7 +341,7 @@
       var iframe = document.createElement("iframe");
       var sep = app.url.indexOf("?") === -1 ? "?" : "&";
       iframe.src = app.url + sep + "embed=1";
-      iframe.title = app.label;
+      iframe.title = app.window_title || app.label;
       body.appendChild(iframe);
     } else if (app.type === "html") {
       body.classList.add("win98-html-body");
@@ -259,6 +349,9 @@
       if (tmpl) {
         body.appendChild(tmpl.content.cloneNode(true));
       }
+    } else if (app.type === "webview") {
+      body.classList.add("win98-webview-wrapper");
+      body.appendChild(buildWebviewChrome(app));
     }
     return body;
   }
@@ -295,7 +388,7 @@
     titlebar.className = "win98-titlebar";
     titlebar.innerHTML =
       '<span class="win98-titlebar-icon">' + iconSvg(app.icon) + '</span>' +
-      '<span class="win98-titlebar-text">' + app.label + '</span>' +
+      '<span class="win98-titlebar-text">' + (app.window_title || app.label) + '</span>' +
       '<div class="win98-titlebar-buttons">' +
         '<button class="win98-title-btn win98-raised" data-action="minimize" title="Minimize">_</button>' +
         '<button class="win98-title-btn win98-raised" data-action="maximize" title="Maximize">□</button>' +
