@@ -1,8 +1,8 @@
 ---
-layout: archive
+layout: window
 title: "CV"
 permalink: /cv/
-author_profile: true
+win98_icon: "📄"
 redirect_from:
   - /resume
 ---

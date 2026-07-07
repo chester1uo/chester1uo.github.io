@@ -1,0 +1,86 @@
+---
+---
+{% include base_path %}
+<!doctype html>
+<html lang="{{ site.locale | slice: 0,2 }}">
+<head>
+  <meta charset="utf-8">
+  {% include seo.html %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="{{ base_path }}/assets/css/win98.css">
+</head>
+<body class="win98-desktop-body win98-reset">
+
+  <div class="win98-desktop">
+    <div class="win98-icons">
+      {% for app in site.data.desktop.apps %}
+        <div class="win98-icon" data-open-app="{{ app.id }}" tabindex="0">
+          <div class="win98-icon-glyph">{% case app.icon %}{% when 'notepad' %}📝{% when 'doc' %}📄{% when 'folder' %}📁{% when 'computer' %}🖥️{% when 'recyclebin' %}🗑️{% when 'mail' %}✉️{% when 'github' %}🐙{% when 'scholar' %}🎓{% else %}🗔️{% endcase %}</div>
+          <div class="win98-icon-label">{{ app.label }}</div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="win98-windows-layer" id="win98-windows-layer"></div>
+  </div>
+
+  <div class="win98-taskbar">
+    <button class="win98-start-btn win98-raised" id="win98-start-btn">
+      <span class="win98-flag"><span></span><span></span><span></span><span></span></span>
+      <span>{{ site.data.desktop.taskbar_label | default: "Start" }}</span>
+    </button>
+    <div class="win98-taskbar-sep"></div>
+    <div class="win98-taskbar-items" id="win98-taskbar-items"></div>
+    <div class="win98-taskbar-sep"></div>
+    <div class="win98-clock win98-sunken" id="win98-clock">--:--</div>
+  </div>
+
+  <div class="win98-start-menu win98-raised" id="win98-start-menu">
+    <div class="win98-start-menu-side"><span>{{ site.data.desktop.pc_name | default: site.title }}</span></div>
+    <div class="win98-start-menu-items">
+      {% for app in site.data.desktop.apps %}
+        <button class="win98-start-menu-item" data-open-app="{{ app.id }}">
+          <span class="win98-start-menu-icon">{% case app.icon %}{% when 'notepad' %}📝{% when 'doc' %}📄{% when 'folder' %}📁{% when 'computer' %}🖥️{% when 'recyclebin' %}🗑️{% when 'mail' %}✉️{% when 'github' %}🐙{% when 'scholar' %}🎓{% else %}🗔️{% endcase %}</span>
+          <span>{{ app.label }}</span>
+        </button>
+      {% endfor %}
+      <div class="win98-start-menu-sep"></div>
+      <button class="win98-start-menu-item" id="win98-shutdown-trigger">
+        <span class="win98-start-menu-icon">⏻</span>
+        <span>Shut Down...</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="win98-shutdown-screen" id="win98-shutdown-screen">
+    <div>It's now safe to close this tab.<br><br><small>(click anywhere to restart Windows)</small></div>
+  </div>
+
+  <template id="win98-tmpl-mycomputer">
+    <p><strong>{{ site.data.desktop.pc_name | default: site.title }}</strong></p>
+    <ul class="win98-fun-list">
+      <li><span class="win98-fun-icon">💽</span> <span>Local Disk (C:) — Research</span></li>
+      <li><span class="win98-fun-icon">💽</span> <span>Local Disk (D:) — Coffee Reserves</span></li>
+      <li><span class="win98-fun-icon">🖨️</span> <span>Printers</span></li>
+      <li><span class="win98-fun-icon">🌐</span> <span>Network Neighborhood</span></li>
+    </ul>
+    <p>Papers published: 6 &nbsp;·&nbsp; Deadlines survived: 9999</p>
+    <div class="win98-meter win98-sunken"><div class="win98-meter-fill" style="width: 78%"></div></div>
+    <p><small>78% of PhD patience used.</small></p>
+  </template>
+
+  <template id="win98-tmpl-recyclebin">
+    <p>This folder is empty.</p>
+    <ul class="win98-fun-list">
+      <li><span class="win98-fun-icon">🗒️</span> <span><s>old_thesis_draft_final_FINAL2.docx</s></span></li>
+      <li><span class="win98-fun-icon">🗒️</span> <span><s>rejected_paper_reviews.pdf</s></span></li>
+    </ul>
+    <p><small>Nothing to restore here.</small></p>
+  </template>
+
+  <script>
+    window.WIN98_APPS = {{ site.data.desktop.apps | jsonify }};
+  </script>
+  <script src="{{ base_path }}/assets/js/win98-desktop.js"></script>
+</body>
+</html>

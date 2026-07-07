@@ -1,9 +1,9 @@
 ---
-permalink: /
+layout: window
+permalink: /about/
 title: "About me"
-author_profile: true
-redirect_from: 
-  - /about/
+win98_icon: "📝"
+redirect_from:
   - /about.html
 ---
 

@@ -1,0 +1,66 @@
+# Configuration for the Windows 98-style desktop shell.
+# Edit this file to add/remove/reorder desktop icons, Start Menu entries,
+# and the windows they open. No JS/HTML editing required for basic changes.
+
+pc_name: "HAOCHEN'S PC"
+taskbar_label: "Start"
+
+apps:
+  - id: about
+    label: "About Me"
+    icon: notepad
+    type: iframe
+    url: /about/
+    width: 640
+    height: 480
+    autostart: true
+
+  - id: cv
+    label: "My CV"
+    icon: doc
+    type: iframe
+    url: /cv/
+    width: 720
+    height: 560
+
+  - id: publications
+    label: "Publications"
+    icon: folder
+    type: iframe
+    url: /publications/
+    width: 700
+    height: 560
+
+  - id: mycomputer
+    label: "My Computer"
+    icon: computer
+    type: html
+    template: mycomputer
+    width: 480
+    height: 360
+
+  - id: recyclebin
+    label: "Recycle Bin"
+    icon: recyclebin
+    type: html
+    template: recyclebin
+    width: 440
+    height: 320
+
+  - id: contact
+    label: "Contact Me"
+    icon: mail
+    type: link
+    url: "mailto:chester.hc.luo@my.cityu.edu.hk"
+
+  - id: github
+    label: "GitHub"
+    icon: github
+    type: link
+    url: "https://github.com/chester1uo"
+
+  - id: scholar
+    label: "Google Scholar"
+    icon: scholar
+    type: link
+    url: "https://scholar.google.com/citations?user=P3JqsrAAAAAJ&hl=en"
