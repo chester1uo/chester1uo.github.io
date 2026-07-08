@@ -384,12 +384,28 @@ body.win98-desktop-body {
 
 .win98-webview-content {
   flex: 1;
+  min-height: 0;
   background: #ffffff;
   overflow: auto;
+}
+
+.win98-webview-content--blocked {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
+}
+
+.win98-webview-content--frame {
+  padding: 0;
+}
+
+.win98-webview-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  background: #ffffff;
 }
 
 .win98-webview-panel {
@@ -427,10 +443,20 @@ body.win98-desktop-body {
   color: var(--w98-link);
 }
 
-.win98-webview-actions {
+.win98-webview-helper {
   display: flex;
+  align-items: center;
   gap: 8px;
-  justify-content: center;
+  padding: 4px 8px;
+  font-size: 11px;
+  background: var(--w98-face);
+  border-top: 1px solid var(--w98-face-dark);
+  flex-shrink: 0;
+}
+
+.win98-webview-helper .win98-btn {
+  padding: 2px 8px;
+  font-size: 11px;
 }
 
 .win98-window-body {

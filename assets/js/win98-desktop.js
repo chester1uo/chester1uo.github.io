@@ -247,6 +247,27 @@
     });
   }
 
+  var KNOWN_BLOCKED_HOSTS = [
+    "github.com",
+    "scholar.google.com",
+    "google.com",
+    "twitter.com",
+    "x.com",
+    "linkedin.com",
+    "facebook.com",
+    "instagram.com",
+    "youtube.com"
+  ];
+
+  function isKnownBlocked(url) {
+    try {
+      var host = new URL(url).hostname.replace(/^www\./, "");
+      return KNOWN_BLOCKED_HOSTS.indexOf(host) !== -1;
+    } catch (e) {
+      return false;
+    }
+  }
+
   var IE_TOOLBAR_ICONS =
     '<button class="win98-toolbar-btn" title="Back" disabled>' +
       '<svg viewBox="0 0 20 20"><polygon points="12,4 6,10 12,16" fill="#008000"/><path d="M12 10h4a2 2 0 0 1 2 2v1" fill="none" stroke="#008000" stroke-width="1.4"/></svg>' +
@@ -294,21 +315,35 @@
 
     var content = document.createElement("div");
     content.className = "win98-webview-content";
-    content.innerHTML =
-      '<div class="win98-webview-panel">' +
-        '<div class="win98-webview-icon">' +
-          '<svg width="40" height="40" viewBox="0 0 32 32"><polygon points="16,3 30,27 2,27" fill="#ffdd33" stroke="#000" stroke-width="1"/><rect x="14.5" y="11" width="3" height="9" fill="#000"/><rect x="14.5" y="22" width="3" height="3" fill="#000"/></svg>' +
-        '</div>' +
-        "<h2>This page cannot be displayed here</h2>" +
-        "<p>This site does not allow itself to be shown inside another window. Copy the link below, or open it in a real browser tab.</p>" +
-        '<span class="win98-webview-url"></span>' +
-        '<div class="win98-webview-actions">' +
-          '<button class="win98-btn win98-raised" data-action="copy">Copy Link</button>' +
-          '<button class="win98-btn win98-raised" data-action="open">Open in New Tab</button>' +
-        "</div>" +
-      "</div>";
-    content.querySelector(".win98-webview-url").textContent = app.url;
-    var copyBtn = content.querySelector('[data-action="copy"]');
+
+    if (isKnownBlocked(app.url)) {
+      content.classList.add("win98-webview-content--blocked");
+      content.innerHTML =
+        '<div class="win98-webview-panel">' +
+          '<div class="win98-webview-icon">' +
+            '<svg width="40" height="40" viewBox="0 0 32 32"><polygon points="16,3 30,27 2,27" fill="#ffdd33" stroke="#000" stroke-width="1"/><rect x="14.5" y="11" width="3" height="9" fill="#000"/><rect x="14.5" y="22" width="3" height="3" fill="#000"/></svg>' +
+          '</div>' +
+          "<h2>This page cannot be displayed here</h2>" +
+          "<p>This site does not allow itself to be shown inside another window. Copy the link below, or open it in a real browser tab.</p>" +
+          '<span class="win98-webview-url"></span>' +
+        "</div>";
+      content.querySelector(".win98-webview-url").textContent = app.url;
+    } else {
+      content.classList.add("win98-webview-content--frame");
+      var innerFrame = document.createElement("iframe");
+      innerFrame.className = "win98-webview-frame";
+      innerFrame.src = app.url;
+      content.appendChild(innerFrame);
+    }
+    wrap.appendChild(content);
+
+    var helper = document.createElement("div");
+    helper.className = "win98-webview-helper";
+    helper.innerHTML =
+      "<span>Trouble viewing this page?</span>" +
+      '<button class="win98-btn win98-raised" data-action="copy">Copy Link</button>' +
+      '<button class="win98-btn win98-raised" data-action="open">Open in New Tab</button>';
+    var copyBtn = helper.querySelector('[data-action="copy"]');
     copyBtn.addEventListener("click", function () {
       var restore = function () {
         copyBtn.textContent = "Copy Link";
@@ -324,10 +359,10 @@
         addressInput.select();
       }
     });
-    content.querySelector('[data-action="open"]').addEventListener("click", function () {
+    helper.querySelector('[data-action="open"]').addEventListener("click", function () {
       window.open(app.url, "_blank", "noopener");
     });
-    wrap.appendChild(content);
+    wrap.appendChild(helper);
 
     var statusbar = document.createElement("div");
     statusbar.className = "win98-statusbar";
