@@ -334,14 +334,23 @@ body.win98-desktop-body {
   flex: 1;
   min-height: 0;
   background: #6e6e6e;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 14px;
 }
 
-.win98-acrobat-viewport iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  display: block;
+.win98-acrobat-viewport canvas {
   background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  max-width: none;
+}
+
+#win98-pdf-loading {
+  color: #ffffff;
+  font-size: 12px;
+  margin: 40px 0 0;
 }
 
 /* ---------- simulated IE "web view" window ---------- */
