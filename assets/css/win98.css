@@ -360,7 +360,7 @@ body.win98-desktop-body {
   font-size: 12px;
 }
 
-.win98-webview-addressbar {
+.win98-addressbar {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -369,7 +369,7 @@ body.win98-desktop-body {
   flex-shrink: 0;
 }
 
-.win98-webview-address-input {
+.win98-addressbar-input {
   flex: 1;
   font-family: var(--w98-font);
   font-size: 12px;
@@ -377,7 +377,7 @@ body.win98-desktop-body {
   background: #ffffff;
 }
 
-.win98-webview-go {
+.win98-addressbar-go {
   font-size: 11px;
   padding: 3px 10px;
 }
@@ -457,6 +457,136 @@ body.win98-desktop-body {
 .win98-webview-helper .win98-btn {
   padding: 2px 8px;
   font-size: 11px;
+}
+
+/* ---------- Windows Explorer file listing (Publications) ---------- */
+
+.win98-explorer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  background: var(--w98-face);
+  font-size: 12px;
+}
+
+.win98-explorer-main {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+
+.win98-explorer-infopane {
+  width: 170px;
+  flex-shrink: 0;
+  padding: 14px 12px;
+  background: linear-gradient(180deg, #7f9fdb, #b6c8ec 55%, #b6c8ec);
+  border-right: 1px solid var(--w98-face-dark);
+  color: #10204a;
+  overflow: auto;
+}
+
+.win98-explorer-infopane-icon {
+  margin-bottom: 8px;
+}
+
+.win98-explorer-infopane h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: #0b1c40;
+}
+
+.win98-explorer-infopane p {
+  font-size: 11px;
+  line-height: 1.5;
+  margin: 0 0 10px;
+}
+
+.win98-explorer-filelist {
+  flex: 1;
+  min-height: 0;
+  background: #ffffff;
+  overflow: auto;
+}
+
+.win98-explorer-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  table-layout: fixed;
+}
+
+.win98-explorer-table th {
+  position: sticky;
+  top: 0;
+  text-align: left;
+  font-weight: normal;
+  padding: 3px 8px;
+  background: var(--w98-face);
+  border-top: 1px solid var(--w98-white);
+  border-left: 1px solid var(--w98-white);
+  border-right: 1px solid var(--w98-face-darker);
+  border-bottom: 1px solid var(--w98-face-darker);
+  white-space: nowrap;
+}
+
+.win98-explorer-table th.win98-explorer-col-size {
+  text-align: right;
+}
+
+.win98-explorer-table td {
+  padding: 4px 8px;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: middle;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.win98-explorer-table tr:hover td {
+  background: #000080;
+  color: #ffffff;
+}
+
+.win98-explorer-table tr:hover .win98-explorer-name a {
+  color: #ffffff;
+}
+
+.win98-explorer-name a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 100%;
+  vertical-align: middle;
+  color: #000000;
+  text-decoration: none;
+}
+
+.win98-explorer-name .win98-icon-svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.win98-explorer-filename {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.win98-explorer-name-extra {
+  margin-left: 6px;
+  font-size: 11px;
+  color: var(--w98-link);
+  text-decoration: none;
+}
+
+.win98-explorer-table tr:hover .win98-explorer-name-extra {
+  color: #cfe0ff;
+}
+
+.win98-explorer-col-size {
+  text-align: right;
 }
 
 .win98-window-body {

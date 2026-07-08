@@ -301,14 +301,14 @@
     wrap.appendChild(toolbar);
 
     var addressBar = document.createElement("div");
-    addressBar.className = "win98-webview-addressbar";
+    addressBar.className = "win98-addressbar";
     addressBar.innerHTML =
       "<span>Address</span>" +
-      '<input class="win98-webview-address-input win98-sunken" type="text" readonly>' +
-      '<button class="win98-webview-go win98-raised">Go</button>';
-    var addressInput = addressBar.querySelector(".win98-webview-address-input");
+      '<input class="win98-addressbar-input win98-sunken" type="text" readonly>' +
+      '<button class="win98-addressbar-go win98-raised">Go</button>';
+    var addressInput = addressBar.querySelector(".win98-addressbar-input");
     addressInput.value = app.url;
-    addressBar.querySelector(".win98-webview-go").addEventListener("click", function () {
+    addressBar.querySelector(".win98-addressbar-go").addEventListener("click", function () {
       window.open(app.url, "_blank", "noopener");
     });
     wrap.appendChild(addressBar);
