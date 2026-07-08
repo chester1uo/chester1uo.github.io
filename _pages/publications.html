@@ -13,13 +13,13 @@ win98_fullbleed: true
   </div>
 
   <div class="win98-toolbar">
-    <button class="win98-toolbar-btn" title="Back" disabled>
+    <button class="win98-toolbar-btn" data-action="back" title="Back" disabled>
       <svg viewBox="0 0 20 20"><polygon points="12,4 6,10 12,16" fill="#008000"/><path d="M12 10h4a2 2 0 0 1 2 2v1" fill="none" stroke="#008000" stroke-width="1.4"/></svg>
     </button>
     <button class="win98-toolbar-btn" title="Forward" disabled>
       <svg viewBox="0 0 20 20"><polygon points="8,4 14,10 8,16" fill="#808080"/><path d="M8 10H4a2 2 0 0 0-2 2v1" fill="none" stroke="#808080" stroke-width="1.4"/></svg>
     </button>
-    <button class="win98-toolbar-btn" title="Up One Level" disabled>
+    <button class="win98-toolbar-btn" data-action="up" title="Up One Level" disabled>
       <svg viewBox="0 0 20 20"><rect x="3" y="8" width="14" height="9" fill="#ffcc33" stroke="#000" stroke-width="1"/><polygon points="10,2 15,8 5,8" fill="#000080"/></svg>
     </button>
     <span class="win98-toolbar-sep"></span>
@@ -47,23 +47,23 @@ win98_fullbleed: true
 
   <div class="win98-addressbar">
     <span>Address</span>
-    <input class="win98-addressbar-input win98-sunken" type="text" readonly value="C:\My Documents\Publications">
+    <input class="win98-addressbar-input win98-sunken" type="text" readonly value="C:\My Documents\Publications" id="win98-pub-address">
     <button class="win98-addressbar-go win98-raised" disabled>Go</button>
   </div>
 
   <div class="win98-explorer-main">
-    <div class="win98-explorer-infopane">
+    <div class="win98-explorer-infopane" id="win98-pub-infopane">
       <div class="win98-explorer-infopane-icon">{% include win98-icon.html icon="folder" size=48 %}</div>
       <h3>Publications</h3>
-      <p>{{ site.publications.size }} object(s)</p>
-      <p>Peer-reviewed papers, preprints, and workshop notes. Click a file to open it.</p>
+      <p>{{ site.publication_category.size }} folder(s), {{ site.publications.size }} file(s)</p>
+      <p>Peer-reviewed papers, preprints, and workshop notes. Open a folder, then click a file to view it.</p>
       {% if site.author.googlescholar %}
         <p><a href="{{ site.author.googlescholar }}">My Google Scholar profile</a></p>
       {% endif %}
     </div>
 
     <div class="win98-explorer-filelist">
-      <table class="win98-explorer-table">
+      <table class="win98-explorer-table" data-view="root">
         <colgroup>
           <col style="width: 48%">
           <col style="width: 24%">
@@ -79,34 +79,130 @@ win98_fullbleed: true
           </tr>
         </thead>
         <tbody>
-          {% for post in site.publications reversed %}
-            {% assign primary = post.paperurl | default: post.websiteurl | default: post.githuburl | default: post.url %}
-            {% assign fakesize = post.title | size | times: 17 | modulo: 850 | plus: 220 %}
+          {% for cat in site.publication_category %}
+            {% assign cat_posts = site.publications | where: "category", cat[0] %}
             <tr>
               <td class="win98-explorer-name">
-                <a href="{{ primary }}" title="{{ post.title }}">
-                  {% include win98-icon.html icon="doc" size=16 %}
-                  <span class="win98-explorer-filename">{{ post.title | slugify }}.pdf</span>
+                <a href="#" class="win98-explorer-folder-link" data-category="{{ cat[0] }}" data-title="{{ cat[1].title }}" data-count="{{ cat_posts.size }}">
+                  {% include win98-icon.html icon="folder" size=16 %}
+                  <span class="win98-explorer-filename">{{ cat[1].title }}</span>
                 </a>
-                {% if post.githuburl and post.githuburl != primary %}
-                  <a class="win98-explorer-name-extra" href="{{ post.githuburl }}">[code]</a>
-                {% endif %}
-                {% if post.posterurl and post.posterurl != primary %}
-                  <a class="win98-explorer-name-extra" href="{{ post.posterurl }}">[poster]</a>
-                {% endif %}
               </td>
-              <td>Adobe Acrobat Document</td>
-              <td>{{ post.date | date: "%-m/%-d/%Y %I:%M %p" }}</td>
-              <td class="win98-explorer-col-size">{{ fakesize }} KB</td>
+              <td>File Folder</td>
+              <td>&mdash;</td>
+              <td class="win98-explorer-col-size">&mdash;</td>
             </tr>
           {% endfor %}
         </tbody>
       </table>
+
+      {% for cat in site.publication_category %}
+        {% assign cat_posts = site.publications | where: "category", cat[0] %}
+        <table class="win98-explorer-table" data-view="category" data-category="{{ cat[0] }}" hidden>
+          <colgroup>
+            <col style="width: 48%">
+            <col style="width: 24%">
+            <col style="width: 18%">
+            <col style="width: 10%">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Modified</th>
+              <th class="win98-explorer-col-size">Size</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for post in cat_posts reversed %}
+              {% assign primary = post.paperurl | default: post.websiteurl | default: post.githuburl | default: post.url %}
+              {% assign fakesize = post.title | size | times: 17 | modulo: 850 | plus: 220 %}
+              <tr>
+                <td class="win98-explorer-name">
+                  <a href="{{ primary }}" title="{{ post.title }}">
+                    {% include win98-icon.html icon="doc" size=16 %}
+                    <span class="win98-explorer-filename">{{ post.title | slugify }}.pdf</span>
+                  </a>
+                  {% if post.githuburl and post.githuburl != primary %}
+                    <a class="win98-explorer-name-extra" href="{{ post.githuburl }}">[code]</a>
+                  {% endif %}
+                  {% if post.posterurl and post.posterurl != primary %}
+                    <a class="win98-explorer-name-extra" href="{{ post.posterurl }}">[poster]</a>
+                  {% endif %}
+                </td>
+                <td>Adobe Acrobat Document</td>
+                <td>{{ post.date | date: "%-m/%-d/%Y %I:%M %p" }}</td>
+                <td class="win98-explorer-col-size">{{ fakesize }} KB</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% endfor %}
     </div>
   </div>
 
   <div class="win98-statusbar">
-    <span>{{ site.publications.size }} object(s)</span>
+    <span id="win98-pub-status">{{ site.publication_category.size }} object(s)</span>
   </div>
 </div>
+
+<script>
+  (function () {
+    var root = document.querySelector('.win98-explorer-table[data-view="root"]');
+    var categoryTables = document.querySelectorAll('.win98-explorer-table[data-view="category"]');
+    var addressInput = document.getElementById("win98-pub-address");
+    var statusEl = document.getElementById("win98-pub-status");
+    var infopane = document.getElementById("win98-pub-infopane");
+    var backBtn = document.querySelector('.win98-toolbar-btn[data-action="back"]');
+    var upBtn = document.querySelector('.win98-toolbar-btn[data-action="up"]');
+    var rootInfoHTML = infopane.innerHTML;
+    var bigFolderIcon =
+      '<svg class="win98-icon-svg" width="48" height="48" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" aria-hidden="true">' +
+      '<rect x="3" y="9" width="12" height="4" fill="#e8a700" stroke="#000000"/>' +
+      '<rect x="3" y="11" width="26" height="17" fill="#ffcc33" stroke="#000000"/>' +
+      '<rect x="3" y="15" width="26" height="13" fill="#ffdb70" stroke="#000000"/>' +
+      "</svg>";
+
+    function showRoot() {
+      root.hidden = false;
+      categoryTables.forEach(function (t) { t.hidden = true; });
+      addressInput.value = "C:\\My Documents\\Publications";
+      statusEl.textContent = root.querySelectorAll("tbody tr").length + " object(s)";
+      infopane.innerHTML = rootInfoHTML;
+      backBtn.disabled = true;
+      upBtn.disabled = true;
+    }
+
+    function showCategory(link) {
+      var key = link.getAttribute("data-category");
+      var title = link.getAttribute("data-title");
+      var count = link.getAttribute("data-count");
+      root.hidden = true;
+      categoryTables.forEach(function (t) {
+        t.hidden = t.getAttribute("data-category") !== key;
+      });
+      addressInput.value = "C:\\My Documents\\Publications\\" + title;
+      statusEl.textContent = count + " object(s)";
+      infopane.innerHTML =
+        '<div class="win98-explorer-infopane-icon">' + bigFolderIcon + "</div>" +
+        "<h3>" + title + "</h3>" +
+        "<p>" + count + " object(s)</p>" +
+        "<p>Click a file to view it, or click Back to return to Publications.</p>";
+      backBtn.disabled = false;
+      upBtn.disabled = false;
+    }
+
+    document.querySelectorAll(".win98-explorer-folder-link").forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        showCategory(link);
+      });
+    });
+
+    if (backBtn) backBtn.addEventListener("click", showRoot);
+    if (upBtn) upBtn.addEventListener("click", showRoot);
+
+    showRoot();
+  })();
+</script>
 
