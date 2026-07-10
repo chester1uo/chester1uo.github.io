@@ -56,7 +56,7 @@ win98_fullbleed: true
       <div class="win98-explorer-infopane-icon">{% include win98-icon.html icon="folder" size=48 %}</div>
       <h3>Publications</h3>
       <p>{{ site.publication_category.size }} folder(s), {{ site.publications.size }} file(s)</p>
-      <p>Peer-reviewed papers, preprints, and workshop notes. Open a folder, then click a file to view it.</p>
+      <p>Peer-reviewed papers, preprints, and workshop notes. Open a folder, then click a file to view its title, authors, and abstract.</p>
       {% if site.author.googlescholar %}
         <p><a href="{{ site.author.googlescholar }}">My Google Scholar profile</a></p>
       {% endif %}
@@ -115,20 +115,14 @@ win98_fullbleed: true
           </thead>
           <tbody>
             {% for post in cat_posts reversed %}
-              {% assign primary = post.paperurl | default: post.websiteurl | default: post.githuburl | default: post.url %}
               {% assign fakesize = post.title | size | times: 17 | modulo: 850 | plus: 220 %}
+              {% assign post_id = post.url | slugify %}
               <tr>
                 <td class="win98-explorer-name">
-                  <a href="{{ primary }}" title="{{ post.title }}">
+                  <a href="#" class="win98-explorer-open-link" data-post-id="{{ post_id }}" title="{{ post.title }}">
                     {% include win98-icon.html icon="doc" size=16 %}
-                    <span class="win98-explorer-filename">{{ post.title | slugify }}.pdf</span>
+                    <span class="win98-explorer-filename">{{ post.title }}</span>
                   </a>
-                  {% if post.githuburl and post.githuburl != primary %}
-                    <a class="win98-explorer-name-extra" href="{{ post.githuburl }}">[code]</a>
-                  {% endif %}
-                  {% if post.posterurl and post.posterurl != primary %}
-                    <a class="win98-explorer-name-extra" href="{{ post.posterurl }}">[poster]</a>
-                  {% endif %}
                 </td>
                 <td>Adobe Acrobat Document</td>
                 <td>{{ post.date | date: "%-m/%-d/%Y %I:%M %p" }}</td>
@@ -137,6 +131,27 @@ win98_fullbleed: true
             {% endfor %}
           </tbody>
         </table>
+
+        {% for post in cat_posts %}
+          {% assign post_id = post.url | slugify %}
+          <div class="win98-explorer-detail" data-view="detail" data-post-id="{{ post_id }}" data-category="{{ cat[0] }}" data-category-title="{{ cat[1].title }}" data-title="{{ post.title }}" hidden>
+            <div class="win98-explorer-detail-inner">
+              <h2>{{ post.title }}</h2>
+              <p class="win98-explorer-detail-authors">{{ post.authors | default: site.author.name }}</p>
+              <p class="win98-explorer-detail-venue">{{ post.venue }}</p>
+              <div class="win98-explorer-detail-actions">
+                {% if post.paperurl %}<a class="win98-btn win98-raised" href="{{ post.paperurl }}">Paper</a>{% endif %}
+                {% if post.websiteurl %}<a class="win98-btn win98-raised" href="{{ post.websiteurl }}">Online Resource</a>{% endif %}
+                {% if post.githuburl %}<a class="win98-btn win98-raised" href="{{ post.githuburl }}">Code</a>{% endif %}
+                {% if post.posterurl %}<a class="win98-btn win98-raised win98-pdf-link" href="{{ post.posterurl }}" data-pdf-title="{{ post.title }} - Poster">Poster (PDF)</a>{% endif %}
+                {% if post.slidesurl %}<a class="win98-btn win98-raised win98-pdf-link" href="{{ post.slidesurl }}" data-pdf-title="{{ post.title }} - Slides">Slides (PDF)</a>{% endif %}
+              </div>
+              <hr>
+              <h3>Abstract</h3>
+              <div class="win98-explorer-abstract">{{ post.content }}</div>
+            </div>
+          </div>
+        {% endfor %}
       {% endfor %}
     </div>
   </div>
@@ -150,6 +165,7 @@ win98_fullbleed: true
   (function () {
     var root = document.querySelector('.win98-explorer-table[data-view="root"]');
     var categoryTables = document.querySelectorAll('.win98-explorer-table[data-view="category"]');
+    var detailPanels = document.querySelectorAll('.win98-explorer-detail[data-view="detail"]');
     var addressInput = document.getElementById("win98-pub-address");
     var statusEl = document.getElementById("win98-pub-status");
     var infopane = document.getElementById("win98-pub-infopane");
@@ -162,10 +178,27 @@ win98_fullbleed: true
       '<rect x="3" y="11" width="26" height="17" fill="#ffcc33" stroke="#000000"/>' +
       '<rect x="3" y="15" width="26" height="13" fill="#ffdb70" stroke="#000000"/>' +
       "</svg>";
+    var bigDocIcon =
+      '<svg class="win98-icon-svg" width="48" height="48" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" aria-hidden="true">' +
+      '<polygon points="8,3 20,3 25,8 25,29 8,29" fill="#ffffff" stroke="#000000"/>' +
+      '<polygon points="20,3 20,8 25,8" fill="#c0c0c0" stroke="#000000"/>' +
+      '<rect x="11" y="13" width="11" height="2" fill="#000080"/>' +
+      '<rect x="11" y="17" width="11" height="2" fill="#000080"/>' +
+      '<rect x="11" y="21" width="8" height="2" fill="#000080"/>' +
+      "</svg>";
+
+    var current = { type: "root" };
+
+    function hideAll() {
+      root.hidden = true;
+      categoryTables.forEach(function (t) { t.hidden = true; });
+      detailPanels.forEach(function (d) { d.hidden = true; });
+    }
 
     function showRoot() {
+      hideAll();
       root.hidden = false;
-      categoryTables.forEach(function (t) { t.hidden = true; });
+      current = { type: "root" };
       addressInput.value = "C:\\My Documents\\Publications";
       statusEl.textContent = root.querySelectorAll("tbody tr").length + " object(s)";
       infopane.innerHTML = rootInfoHTML;
@@ -173,36 +206,81 @@ win98_fullbleed: true
       upBtn.disabled = true;
     }
 
-    function showCategory(link) {
-      var key = link.getAttribute("data-category");
-      var title = link.getAttribute("data-title");
-      var count = link.getAttribute("data-count");
-      root.hidden = true;
-      categoryTables.forEach(function (t) {
-        t.hidden = t.getAttribute("data-category") !== key;
-      });
+    function showCategory(key, title, count) {
+      hideAll();
+      var table = document.querySelector('.win98-explorer-table[data-view="category"][data-category="' + key + '"]');
+      if (table) table.hidden = false;
+      var rowCount = table ? table.querySelectorAll("tbody tr").length : (count || 0);
+      current = { type: "category", key: key, title: title };
       addressInput.value = "C:\\My Documents\\Publications\\" + title;
-      statusEl.textContent = count + " object(s)";
+      statusEl.textContent = rowCount + " object(s)";
       infopane.innerHTML =
         '<div class="win98-explorer-infopane-icon">' + bigFolderIcon + "</div>" +
         "<h3>" + title + "</h3>" +
-        "<p>" + count + " object(s)</p>" +
+        "<p>" + rowCount + " object(s)</p>" +
         "<p>Click a file to view it, or click Back to return to Publications.</p>";
       backBtn.disabled = false;
       upBtn.disabled = false;
     }
 
+    function showDetail(postId) {
+      var panel = document.querySelector('.win98-explorer-detail[data-post-id="' + postId + '"]');
+      if (!panel) return;
+      hideAll();
+      panel.hidden = false;
+      var titleText = panel.getAttribute("data-title") || "Document";
+      var category = panel.getAttribute("data-category");
+      var categoryTitle = panel.getAttribute("data-category-title");
+      current = { type: "detail", postId: postId, category: category, categoryTitle: categoryTitle };
+      addressInput.value = "C:\\My Documents\\Publications\\" + categoryTitle + "\\" + titleText;
+      statusEl.textContent = "1 object(s) selected";
+      infopane.innerHTML =
+        '<div class="win98-explorer-infopane-icon">' + bigDocIcon + "</div>" +
+        "<h3>" + titleText + "</h3>" +
+        "<p>Adobe Acrobat Document</p>" +
+        "<p>Click Back to return to " + categoryTitle + ".</p>";
+      backBtn.disabled = false;
+      upBtn.disabled = false;
+    }
+
+    function goBack() {
+      if (current.type === "detail") {
+        showCategory(current.category, current.categoryTitle);
+      } else if (current.type === "category") {
+        showRoot();
+      }
+    }
+
     document.querySelectorAll(".win98-explorer-folder-link").forEach(function (link) {
       link.addEventListener("click", function (e) {
         e.preventDefault();
-        showCategory(link);
+        showCategory(link.getAttribute("data-category"), link.getAttribute("data-title"), link.getAttribute("data-count"));
       });
     });
 
-    if (backBtn) backBtn.addEventListener("click", showRoot);
-    if (upBtn) upBtn.addEventListener("click", showRoot);
+    document.querySelectorAll(".win98-explorer-open-link").forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        showDetail(link.getAttribute("data-post-id"));
+      });
+    });
+
+    document.querySelectorAll(".win98-pdf-link").forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        var url = link.getAttribute("href");
+        var title = link.getAttribute("data-pdf-title") || "Document";
+        if (window.parent && window.parent !== window && window.parent.WIN98 && typeof window.parent.WIN98.openPdf === "function") {
+          window.parent.WIN98.openPdf(url, title);
+        } else {
+          window.open(url, "_blank", "noopener");
+        }
+      });
+    });
+
+    if (backBtn) backBtn.addEventListener("click", goBack);
+    if (upBtn) upBtn.addEventListener("click", goBack);
 
     showRoot();
   })();
 </script>
-

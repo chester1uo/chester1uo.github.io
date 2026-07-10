@@ -1,0 +1,36 @@
+---
+layout: window
+permalink: /pdf-viewer/
+title: "Document Viewer"
+win98_icon: doc
+win98_titlebar: "Acrobat Reader"
+win98_fullbleed: true
+---
+
+{% include win98-acrobat.html download_url="#" download_name="document.pdf" loading_label="document" %}
+
+<script type="module">
+  import { initPdfViewer } from "/assets/js/win98-pdf-viewer.js";
+
+  var params = new URLSearchParams(window.location.search);
+  var src = params.get("src");
+  var title = params.get("title") || "Document";
+
+  var titlebarText = document.querySelector(".win98-titlebar-text");
+  if (titlebarText) titlebarText.textContent = "Acrobat Reader - [" + title + "]";
+  document.title = title;
+
+  var filename = title.replace(/[^a-z0-9]+/gi, "_") + ".pdf";
+  document.querySelectorAll("a[download]").forEach(function (link) {
+    link.href = src || "#";
+    link.download = filename;
+  });
+
+  var loadingEl = document.getElementById("win98-pdf-loading");
+  if (src) {
+    if (loadingEl) loadingEl.textContent = "Loading " + title + "…";
+    initPdfViewer(src);
+  } else if (loadingEl) {
+    loadingEl.textContent = "No document specified.";
+  }
+</script>

@@ -598,6 +598,57 @@ body.win98-desktop-body {
   text-align: right;
 }
 
+.win98-explorer-detail-inner {
+  max-width: 640px;
+  padding: 18px 22px;
+  font-size: 12px;
+  line-height: 1.55;
+  color: #000000;
+}
+
+.win98-explorer-detail-inner h2 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  color: #000080;
+}
+
+.win98-explorer-detail-authors {
+  margin: 0 0 3px;
+  font-style: italic;
+}
+
+.win98-explorer-detail-venue {
+  margin: 0 0 14px;
+  color: #444444;
+}
+
+.win98-explorer-detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.win98-explorer-detail-actions .win98-btn {
+  padding: 4px 12px;
+}
+
+.win98-explorer-detail-inner hr {
+  border: none;
+  border-top: 1px solid var(--w98-face-dark);
+  border-bottom: 1px solid var(--w98-white);
+  margin: 0 0 14px;
+}
+
+.win98-explorer-detail-inner h3 {
+  margin: 0 0 6px;
+  font-size: 13px;
+}
+
+.win98-explorer-abstract p {
+  margin: 0;
+}
+
 .win98-window-body {
   flex: 1;
   overflow: auto;

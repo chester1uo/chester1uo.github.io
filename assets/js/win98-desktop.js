@@ -491,8 +491,23 @@
     });
   }
 
+  function openPdf(url, title) {
+    var id = "pdf:" + url;
+    var label = title || "Document";
+    createWindow(id, {
+      label: label,
+      window_title: "Acrobat Reader - [" + label + "]",
+      icon: "doc",
+      type: "iframe",
+      url: "/pdf-viewer/?src=" + encodeURIComponent(url) + "&title=" + encodeURIComponent(label),
+      width: 680,
+      height: 780
+    });
+  }
+
   window.WIN98 = window.WIN98 || {};
   window.WIN98.openExternal = openExternal;
+  window.WIN98.openPdf = openPdf;
 
   function closeStartMenu() {
     startMenu.classList.remove("open");

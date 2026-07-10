@@ -1,0 +1,62 @@
+{% assign download_url = include.download_url %}
+{% assign download_name = include.download_name | default: "document.pdf" %}
+{% assign loading_label = include.loading_label | default: "document.pdf" %}
+
+<div class="win98-acrobat">
+  <div class="win98-menubar">
+    <span>File</span><span>Edit</span><span>View</span><span>Tools</span><span>Window</span><span>Help</span>
+  </div>
+
+  <div class="win98-toolbar">
+    <button class="win98-toolbar-btn" title="Hand tool" disabled>
+      <svg viewBox="0 0 20 20"><path d="M6 18v-6l-2-4a1.2 1.2 0 0 1 2-1l1 2v-6a1 1 0 0 1 2 0v5h1V5a1 1 0 0 1 2 0v6h1V6a1 1 0 0 1 2 0v8a4 4 0 0 1-4 4H8a2 2 0 0 1-2-2z" fill="#c0c0c0" stroke="#000" stroke-width="0.7"/></svg>
+    </button>
+    <button class="win98-toolbar-btn" id="win98-pdf-zoom-out" title="Zoom Out">
+      <svg viewBox="0 0 20 20"><circle cx="8" cy="8" r="5.5" fill="#fff" stroke="#000" stroke-width="1.2"/><line x1="12.3" y1="12.3" x2="17.5" y2="17.5" stroke="#000" stroke-width="1.6"/><line x1="5" y1="8" x2="11" y2="8" stroke="#000" stroke-width="1"/></svg>
+    </button>
+    <button class="win98-toolbar-btn" id="win98-pdf-zoom-in" title="Zoom In">
+      <svg viewBox="0 0 20 20"><circle cx="8" cy="8" r="5.5" fill="#fff" stroke="#000" stroke-width="1.2"/><line x1="12.3" y1="12.3" x2="17.5" y2="17.5" stroke="#000" stroke-width="1.6"/><line x1="8" y1="5" x2="8" y2="11" stroke="#000" stroke-width="1"/><line x1="5" y1="8" x2="11" y2="8" stroke="#000" stroke-width="1"/></svg>
+    </button>
+    <span class="win98-toolbar-sep"></span>
+    <button class="win98-toolbar-btn" id="win98-pdf-first" title="First page">
+      <svg viewBox="0 0 20 20"><rect x="4" y="4" width="2" height="12" fill="#000"/><polygon points="16,4 8,10 16,16" fill="#000"/></svg>
+    </button>
+    <button class="win98-toolbar-btn" id="win98-pdf-prev" title="Previous page">
+      <svg viewBox="0 0 20 20"><polygon points="14,4 6,10 14,16" fill="#000"/></svg>
+    </button>
+    <button class="win98-toolbar-btn" id="win98-pdf-next" title="Next page">
+      <svg viewBox="0 0 20 20"><polygon points="6,4 14,10 6,16" fill="#000"/></svg>
+    </button>
+    <button class="win98-toolbar-btn" id="win98-pdf-last" title="Last page">
+      <svg viewBox="0 0 20 20"><rect x="14" y="4" width="2" height="12" fill="#000"/><polygon points="4,4 12,10 4,16" fill="#000"/></svg>
+    </button>
+    <span class="win98-toolbar-sep"></span>
+    <button class="win98-toolbar-btn" title="Go back" disabled>
+      <svg viewBox="0 0 20 20"><polygon points="13,4 6,10 13,16" fill="#000"/><polygon points="17,4 10,10 17,16" fill="#000"/></svg>
+    </button>
+    <button class="win98-toolbar-btn" title="Go forward" disabled>
+      <svg viewBox="0 0 20 20"><polygon points="7,4 14,10 7,16" fill="#000"/><polygon points="3,4 10,10 3,16" fill="#000"/></svg>
+    </button>
+    <span class="win98-toolbar-sep"></span>
+    <button class="win98-toolbar-btn" title="Find" disabled>
+      <svg viewBox="0 0 20 20"><circle cx="8" cy="8" r="5" fill="none" stroke="#000" stroke-width="1.4"/><line x1="12" y1="12" x2="17" y2="17" stroke="#000" stroke-width="2"/></svg>
+    </button>
+    <span class="win98-toolbar-sep"></span>
+    <a class="win98-toolbar-btn win98-toolbar-btn--action" href="{{ download_url }}" download="{{ download_name }}" title="Save a Copy... (Download)">
+      <svg viewBox="0 0 20 20"><rect x="3" y="3" width="14" height="14" fill="#000080" stroke="#000" stroke-width="1"/><rect x="5" y="4" width="7" height="5" fill="#fff"/><rect x="6" y="11" width="8" height="5" fill="#fff" stroke="#000" stroke-width="0.6"/></svg>
+    </a>
+  </div>
+
+  <div class="win98-acrobat-viewport" id="win98-pdf-viewport">
+    <canvas id="win98-pdf-canvas"></canvas>
+    <p id="win98-pdf-loading">Loading {{ loading_label }}&hellip;</p>
+  </div>
+
+  <div class="win98-statusbar">
+    <span id="win98-pdf-page-status">Page 1 of 1</span>
+    <span id="win98-pdf-zoom-status">100%</span>
+    <span id="win98-pdf-size-status"></span>
+  </div>
+</div>
+
+<p class="win98-pdf-fallback">If the document doesn't display above, <a href="{{ download_url }}" download="{{ download_name }}">download the PDF</a> instead.</p>

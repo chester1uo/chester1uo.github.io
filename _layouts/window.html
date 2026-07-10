@@ -29,7 +29,7 @@
   </div>
   <script>
     (function () {
-      var links = document.querySelectorAll(".win98-doc a[href]");
+      var links = document.querySelectorAll(".win98-doc a[href]:not(.win98-pdf-link)");
       links.forEach(function (link) {
         if (!/^https?:$/.test(link.protocol)) return;
         if (link.hostname === window.location.hostname) return;
