@@ -51,8 +51,11 @@ apps:
   - id: contact
     label: "Contact Me"
     icon: mail
-    type: link
-    url: "mailto:chester.hc.luo@my.cityu.edu.hk"
+    type: html
+    template: contact
+    window_title: "Contact - Address Book"
+    width: 460
+    height: 460
 
   - id: github
     label: "GitHub"

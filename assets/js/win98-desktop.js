@@ -386,6 +386,14 @@
       var tmpl = document.getElementById("win98-tmpl-" + app.template);
       if (tmpl) {
         body.appendChild(tmpl.content.cloneNode(true));
+        body.querySelectorAll("a[href]").forEach(function (link) {
+          if (!/^https?:$/.test(link.protocol)) return;
+          if (link.hostname === window.location.hostname) return;
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            openExternal(link.href, link.hostname);
+          });
+        });
       }
     } else if (app.type === "webview") {
       body.classList.add("win98-webview-wrapper");

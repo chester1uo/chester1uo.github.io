@@ -78,6 +78,33 @@
     <p><small>Nothing to restore here.</small></p>
   </template>
 
+  <template id="win98-tmpl-contact">
+    <div class="win98-contact-card">
+      <img class="win98-contact-photo" src="{{ base_path }}/images/{{ site.author.avatar }}" alt="{{ site.author.name }}">
+      <div class="win98-contact-heading">
+        <h3>{{ site.author.name }}</h3>
+        <p>{{ site.author.bio }}</p>
+      </div>
+    </div>
+    <ul class="win98-contact-list">
+      {% if site.author.email %}
+        <li><span class="win98-contact-label">Email</span><a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>
+      {% endif %}
+      {% if site.author.github %}
+        <li><span class="win98-contact-label">GitHub</span><a href="https://github.com/{{ site.author.github }}">github.com/{{ site.author.github }}</a></li>
+      {% endif %}
+      {% if site.author.linkedin %}
+        <li><span class="win98-contact-label">LinkedIn</span><a href="https://www.linkedin.com/in/{{ site.author.linkedin }}">linkedin.com/in/{{ site.author.linkedin }}</a></li>
+      {% endif %}
+      {% if site.author.googlescholar %}
+        <li><span class="win98-contact-label">Scholar</span><a href="{{ site.author.googlescholar }}">Google Scholar profile</a></li>
+      {% endif %}
+      {% if site.author.location %}
+        <li><span class="win98-contact-label">Location</span><span>{{ site.author.location }}</span></li>
+      {% endif %}
+    </ul>
+  </template>
+
   <script>
     window.WIN98_APPS = {{ site.data.desktop.apps | jsonify }};
   </script>

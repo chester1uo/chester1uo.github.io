@@ -1139,6 +1139,63 @@ html.win98-embedded .win98-standalone-window.win98-standalone-fullbleed {
   background: repeating-linear-gradient(90deg, #000080, #000080 6px, #1084d0 6px, #1084d0 8px);
 }
 
+/* ---------- contact card ---------- */
+
+.win98-contact-card {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding-bottom: 10px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--w98-face-dark);
+}
+
+.win98-contact-photo {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: #fff;
+  border-top: 1px solid var(--w98-face-darker);
+  border-left: 1px solid var(--w98-face-darker);
+  border-right: 1px solid var(--w98-white);
+  border-bottom: 1px solid var(--w98-white);
+  padding: 2px;
+}
+
+.win98-contact-heading h3 {
+  margin: 0 0 4px;
+  font-size: 14px;
+}
+
+.win98-contact-heading p {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.4;
+  color: #333333;
+}
+
+.win98-contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.win98-contact-list li {
+  display: flex;
+  gap: 8px;
+  padding: 4px 2px;
+  border-bottom: 1px dotted var(--w98-face-dark);
+  font-size: 12px;
+}
+
+.win98-contact-label {
+  width: 70px;
+  flex-shrink: 0;
+  font-weight: bold;
+  color: #000080;
+}
+
 /* ---------- scrollbars ---------- */
 
 .win98-window-body::-webkit-scrollbar,
