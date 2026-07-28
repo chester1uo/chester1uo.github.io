@@ -75,7 +75,25 @@
   var openWindows = {};
   var zCounter = 100;
   var cascadeOffset = 0;
-  var isSmallScreen = window.innerWidth <= 720;
+
+  function isSmallScreen() {
+    return window.innerWidth <= 720;
+  }
+
+  var SIZE_REFERENCE_WIDTH = 1280;
+  var SIZE_REFERENCE_HEIGHT = 800;
+
+  function computeWindowSize(app) {
+    var deskW = desktopEl.clientWidth;
+    var deskH = desktopEl.clientHeight;
+    var baseWidth = app.width || 640;
+    var baseHeight = app.height || 480;
+    var scale = Math.min(deskW / SIZE_REFERENCE_WIDTH, deskH / SIZE_REFERENCE_HEIGHT);
+    scale = Math.max(0.55, Math.min(1.35, scale));
+    var width = Math.max(280, Math.min(Math.round(baseWidth * scale), Math.round(deskW * 0.94)));
+    var height = Math.max(200, Math.min(Math.round(baseHeight * scale), Math.round(deskH * 0.9)));
+    return { width: width, height: height };
+  }
 
   function updateClock() {
     if (!clockEl) return;
@@ -408,10 +426,14 @@
       return;
     }
 
-    var width = isSmallScreen ? desktopEl.clientWidth : (app.width || 640);
-    var height = isSmallScreen ? desktopEl.clientHeight : (app.height || 480);
-    var startX = isSmallScreen ? 0 : 40 + cascadeOffset;
-    var startY = isSmallScreen ? 0 : 30 + cascadeOffset;
+    var small = isSmallScreen();
+    var size = small
+      ? { width: desktopEl.clientWidth, height: desktopEl.clientHeight }
+      : computeWindowSize(app);
+    var width = size.width;
+    var height = size.height;
+    var startX = small ? 0 : 40 + cascadeOffset;
+    var startY = small ? 0 : 30 + cascadeOffset;
     cascadeOffset = (cascadeOffset + 24) % 160;
 
     var win = document.createElement("div");
@@ -467,7 +489,7 @@
       taskbarBtn: makeTaskbarButton(id, app)
     };
 
-    if (isSmallScreen) {
+    if (small) {
       toggleMaximize(id);
     }
 
@@ -573,6 +595,24 @@
 
   updateClock();
   setInterval(updateClock, 15000);
+
+  var viewportResizeTimer = null;
+  window.addEventListener("resize", function () {
+    clearTimeout(viewportResizeTimer);
+    viewportResizeTimer = setTimeout(function () {
+      var deskW = desktopEl.clientWidth;
+      var deskH = desktopEl.clientHeight;
+      Object.keys(openWindows).forEach(function (id) {
+        var w = openWindows[id];
+        if (w.maximized || w.minimized) return;
+        if (w.el.offsetWidth > deskW) w.el.style.width = deskW + "px";
+        if (w.el.offsetHeight > deskH) w.el.style.height = deskH + "px";
+        var pos = clampToDesktop(w.el.offsetLeft, w.el.offsetTop, w.el.offsetWidth, w.el.offsetHeight);
+        w.el.style.left = pos.x + "px";
+        w.el.style.top = pos.y + "px";
+      });
+    }, 150);
+  });
 
   var autostart = (window.WIN98_APPS || []).filter(function (app) {
     return app.autostart;
