@@ -46,11 +46,16 @@ QFinZero: A Unified Financial Toolchain for LLM-Based Trading Agents." ACL 2026 
 ### Preprints
 * **Haochen Luo**; Zhengzhao Lai; Junjie Xu; Yifan Li; Tang Pok Hin; Yuan Zhang; Chen Liu. "From Natural Language to Executable Option Strategies via Large Language Models". arXiv:2603.16434, 2026.
 * Jingning Xu; **Haochen Luo**; Chen Liu. "PDA: Text-Augmented Defense Framework for Robust Vision-Language Models against Adversarial Image Attacks". arXiv:2604.01010, 2026.
+* Ding Chen; **Haochen Luo**; Xiaofei Wang; Chen Liu. "Differentially Private Neural Network Training Under the Hidden State Assumption". arXiv:2407.08233, 2024.
 
 
 ## Service
 
 * Reviewer of AAAI Conference on Artificial Intelligence, International Conference on Machine Learning (ICML), Conference on Language Modeling (CoLM), Conference on Neural Information Processing Systems (NeurIPS)
+
+## Collaborators & Mentors
+
+* [Ho Tin Ko](https://b143kc47.github.io/) — long-time collaborator and mentor across our research projects.
 
 ## Contact Me
 
