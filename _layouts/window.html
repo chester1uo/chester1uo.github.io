@@ -2,12 +2,13 @@
 ---
 {% include base_path %}
 <!doctype html>
-<html lang="{{ site.locale | slice: 0,2 }}">
+<html lang="{{ site.locale | slice: 0,2 }}"{% if site.data.desktop.theme == "xp" %} class="win98-theme-xp"{% endif %}>
 <head>
   <meta charset="utf-8">
   {% include seo.html %}
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{ base_path }}/assets/css/win98.css">
+  <link rel="stylesheet" href="{{ base_path }}/assets/css/theme-xp.css">
   <script>
     if (new URLSearchParams(window.location.search).get("embed") === "1") {
       document.documentElement.classList.add("win98-embedded");

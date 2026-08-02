@@ -1,6 +1,9 @@
-# Configuration for the Windows 98-style desktop shell.
+# Configuration for the Windows-style desktop shell.
 # Edit this file to add/remove/reorder desktop icons, Start Menu entries,
 # and the windows they open. No JS/HTML editing required for basic changes.
+
+# Visual theme: "98" for classic Windows 98 gray, "xp" for Windows XP Luna blue.
+theme: "98"
 
 pc_name: "HAOCHEN'S PC"
 taskbar_label: "Start"
