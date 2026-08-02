@@ -21,15 +21,22 @@ html.win98-theme-xp {
 }
 
 /* ---------- desktop background ---------- */
-/* A stylised sky + hill gradient evoking XP's default look, without
-   reproducing the actual "Bliss" photograph. */
+/* A stylised sky + rolling-hills + clouds scene evoking XP's default
+   look, without reproducing the actual "Bliss" photograph. */
 
 html.win98-theme-xp body.win98-desktop-body,
 html.win98-theme-xp body.win98-page {
   background-image:
-    radial-gradient(120% 65% at 50% 125%, #4f9a3d 0%, #3f8a2c 32%, transparent 62%),
-    linear-gradient(180deg, #3a7bd5 0%, #6faee0 55%, #bfe0f0 100%);
-  background-size: cover;
+    radial-gradient(50px 18px at 12% 14%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.95) 55%, transparent 75%),
+    radial-gradient(75px 24px at 35% 8%, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.92) 55%, transparent 75%),
+    radial-gradient(55px 20px at 60% 13%, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.88) 55%, transparent 75%),
+    radial-gradient(45px 16px at 84% 19%, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.8) 55%, transparent 75%),
+    radial-gradient(170% 32% at 68% 100%, #4fae35 0%, #4fae35 62%, transparent 63%),
+    radial-gradient(190% 38% at 22% 100%, #235f1b 0%, #235f1b 68%, transparent 69%),
+    linear-gradient(180deg, #1a53c4 0%, #3a80dd 32%, #7fbdee 64%, #d7f0fa 100%);
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-color: #1a53c4;
 }
 
 /* ---------- generic buttons / bevels ---------- */
@@ -83,7 +90,7 @@ html.win98-theme-xp .win98-icon.selected .win98-icon-label {
 
 html.win98-theme-xp .win98-window,
 html.win98-theme-xp .win98-standalone-window {
-  border: 1px solid #0a246a;
+  border: 2px solid #0a3fc4;
   border-radius: 8px 8px 3px 3px;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.45);
   overflow: hidden;
@@ -91,13 +98,24 @@ html.win98-theme-xp .win98-standalone-window {
 
 html.win98-theme-xp .win98-window.maximized {
   border-radius: 0;
+  border-width: 0;
 }
 
 html.win98-theme-xp .win98-titlebar {
+  position: relative;
   height: 26px;
   padding: 3px 4px 3px 6px;
-  border-radius: 6px 6px 0 0;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
   background: linear-gradient(180deg, #9db8dd 0%, #7a95c0 10%, #8fa9ce 45%, #7a95c0 90%, #6c86b3 100%);
+}
+
+html.win98-theme-xp .win98-titlebar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.12) 32%, transparent 46%);
+  pointer-events: none;
 }
 
 html.win98-theme-xp .win98-standalone-window .win98-titlebar {
@@ -106,11 +124,19 @@ html.win98-theme-xp .win98-standalone-window .win98-titlebar {
 
 html.win98-theme-xp .win98-window.active .win98-titlebar,
 html.win98-theme-xp .win98-titlebar.active {
-  background: linear-gradient(180deg, #3d8bf5 0%, #0a246a 12%, #163e8f 45%, #0f2e75 90%, #0a246a 100%);
+  background: linear-gradient(180deg, #4a9bff 0%, #0a246a 14%, #163e8f 45%, #0f2e75 90%, #0a246a 100%);
 }
 
 html.win98-theme-xp .win98-titlebar-text {
+  position: relative;
+  z-index: 1;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+html.win98-theme-xp .win98-titlebar-icon,
+html.win98-theme-xp .win98-titlebar-buttons {
+  position: relative;
+  z-index: 1;
 }
 
 html.win98-theme-xp .win98-title-btn {
