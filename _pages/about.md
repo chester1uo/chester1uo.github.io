@@ -26,7 +26,7 @@ Outside of academia, I have a keen interest in aviation ✈️ and photography �
 
 ## Education Experiences
 - (Incoming) 01-2027, The University of Queensland, PhD, Computer Science
-- 12/2024 - 12/2026, City University of Hong Kong, MPhil, Computer Science (**For future Research Postgraduate students: I personally and strongly suggest NOT coming!!!**)
+- 12/2024 - 12/2026, City University of Hong Kong, MPhil, Computer Science (<span style="color:red;font-weight:bold">For future Research Postgraduate students: I personally and strongly suggest NOT coming!!!</span>)
 - 09/2020 - 07/2024, Northeastern University, Bachelor, Information Management and Information System
 
 ## Industry Experiences
