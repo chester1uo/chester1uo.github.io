@@ -30,7 +30,7 @@ Outside of academia, I have a keen interest in aviation ✈️ and photography �
 - 09/2020 - 07/2024, Northeastern University, Bachelor, Information Management and Information System
 
 ## Industry Experiences
-* 09/2026 - 12/2026: Hithink RoyalFlush, Algorithm Engineer Intern (finance foundation model, options capabilities)
+* 09/2026 - 12/2026: Hithink RoyalFlush, Algorithm Engineer Intern
 * 05/2024 - 01/2025: DJI, Machine Learning Algorithm Engineer Intern
 * 10/2023 - 05/2024: ASML, Algorithm Engineer Intern
 * 07/2023 - 10/2023: XGRIDS, Algorithm Research Intern
@@ -58,6 +58,7 @@ QFinZero: A Unified Financial Toolchain for LLM-Based Trading Agents." ACL 2026 
 ## Collaborators & Mentors
 
 * [Ho Tin Ko](https://b143kc47.github.io/) — long-time collaborator and mentor across our research projects.
+* [Zhengzhao Lai](https://onlyairnopods.github.io/) — collaborator on our research projects.
 
 ## Contact Me
 
