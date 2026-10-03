@@ -60,10 +60,4 @@ QFinZero: A Unified Financial Toolchain for LLM-Based Trading Agents." ACL 2026 
 * [Ho Tin Ko](https://b143kc47.github.io/) — long-time collaborator and mentor across our research projects.
 * [Zhengzhao Lai](https://onlyairnopods.github.io/) — collaborator on our research projects.
 
-## Contact Me
-
-I am open to working with CityU Hong Kong undergraduate students who are looking for RMS or FYP projects and are interested in doing research in FinTech or AI for Finance (AI4Fin). Please contact Prof. Liu Chen. We can then propose a project that suits your background and interests, and I hope you can take the role of project leader to help drive the research forward.
-
-I am also open to collaborating with CS6590 Master’s project students who would like to contribute to our ongoing research projects.
-
 <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=Ny8sf99fBB0N-Rh82wlTJKSCbRAIeDTZY5m7kZq-oGo&cl=ffffff&w=a"></script>
