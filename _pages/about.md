@@ -26,18 +26,20 @@ Outside of academia, I have a keen interest in aviation ✈️ and photography �
 
 ## Education Experiences
 - (Incoming) 01-2027, The University of Queensland, PhD, Computer Science
-- 12/2024 - 12/2026, City University of Hong Kong, MPhil, Computer Science
+- 12/2024 - 12/2026, City University of Hong Kong, MPhil, Computer Science (**For future Research Postgraduate students: I personally and strongly suggest NOT coming!!!**)
 - 09/2020 - 07/2024, Northeastern University, Bachelor, Information Management and Information System
 
 ## Industry Experiences
+* 09/2026 - 12/2026: Hithink RoyalFlush, Algorithm Engineer Intern (finance foundation model, options capabilities)
 * 05/2024 - 01/2025: DJI, Machine Learning Algorithm Engineer Intern
 * 10/2023 - 05/2024: ASML, Algorithm Engineer Intern
-* 07/2023 - 10/2024: XGRIDS, Algorithm Research Intern
+* 07/2023 - 10/2023: XGRIDS, Algorithm Research Intern
 
 ## Preprints and Publications
 
 ### Conference Papers
 
+* **Haochen Luo**, Yifan Li, An Binh Minh, Xiaolong Luo, Zhengzhao Lai, Yuan Zhang, Chen Liu. "LiveOption: Evaluating LLM Agents in Structured Option Trading with Nonlinear Payoffs." Neural Information Processing Systems (NeurIPS) 2026, Evaluations and Datasets Track.
 * **Haochen Luo**, Yifan Li, Ho Tin Ko, An Binh Minh, Junjie Xu, Tang Pok Hin, Wang Chak WONG, Gao Yuan, Zhengzhao Lai, Yuan Zhang, Chen Liu. "
 QFinZero: A Unified Financial Toolchain for LLM-Based Trading Agents." ACL 2026 Demo. 
 * **Haochen Luo**; Ho Tin Ko; Jiandong Chen; David Sun; Yuan Zhang; Chen Liu. "AlphaBench: Benchmarking Large Language Models in Formulaic Alpha Factor Mining". International Conference on Learning Representations (ICLR) 2026.
@@ -51,7 +53,7 @@ QFinZero: A Unified Financial Toolchain for LLM-Based Trading Agents." ACL 2026 
 
 ## Service
 
-* Reviewer of AAAI Conference on Artificial Intelligence, International Conference on Machine Learning (ICML), Conference on Language Modeling (CoLM), Conference on Neural Information Processing Systems (NeurIPS)
+* Reviewer of AAAI Conference on Artificial Intelligence, International Conference on Machine Learning (ICML), International Conference on Learning Representations (ICLR), Conference on Language Modeling (CoLM), Conference on Neural Information Processing Systems (NeurIPS), Transactions on Machine Learning Research (TMLR)
 
 ## Collaborators & Mentors
 
