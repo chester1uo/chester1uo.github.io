@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-Hi! I am MPhil student at City University of Hong Kong, supervised by [Prof. Liu Chen](https://liuchen1993.cn/). My interests are: 
+Hi! I am an incoming PhD student at the University of Queensland, supervised by Prof. Ruihong Qiu. My interests are: 
 
 **1. Large Language Models (LLMs)**, with a particular focus on robustness, privacy, and the security of LLMs. Also I am interested in diffusion LLMs (dLLMs).
 
