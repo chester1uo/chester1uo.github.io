@@ -46,6 +46,8 @@ QFinZero: A Unified Financial Toolchain for LLM-Based Trading Agents." ACL 2026 
 * Zhong, Xuyang, **Haochen Luo**, and Chen Liu. "Dualoptim: Enhancing efficacy and stability in machine unlearning with dual optimizers." Neural Information Processing Systems (NeurIPS) 2025.
 
 ### Preprints
+* **Haochen Luo**; Sifan Lin; Xiaolong Luo; An Binh Minh; Yuan Zhang; Chen Liu. "Arbitrage-Free Implied Volatility Surface Reconstruction via Additive Martingales". [arXiv:2610.25671](https://arxiv.org/abs/2610.25671), 2026.
+* Ding Chen; **Haochen Luo**; Chen Liu. "CommuteProp: Decoupled Training for Communication Bound Split LLM Fine-Tuning". [arXiv:2610.05105](https://arxiv.org/abs/2610.05105), 2026.
 * **Haochen Luo**; Zhengzhao Lai; Junjie Xu; Yifan Li; Tang Pok Hin; Yuan Zhang; Chen Liu. "From Natural Language to Executable Option Strategies via Large Language Models". arXiv:2603.16434, 2026.
 * Jingning Xu; **Haochen Luo**; Chen Liu. "PDA: Text-Augmented Defense Framework for Robust Vision-Language Models against Adversarial Image Attacks". arXiv:2604.01010, 2026.
 * Ding Chen; **Haochen Luo**; Xiaofei Wang; Chen Liu. "Differentially Private Neural Network Training Under the Hidden State Assumption". arXiv:2407.08233, 2024.
